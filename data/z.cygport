@@ -1,0 +1,17 @@
+NAME=z
+VERSION=1.11
+RELEASE=1
+CATEGORY=Private
+SUMMARY=${NAME}
+ARCH=noarch
+REQUIRES=cygwin
+SRC_URI=https://github.com/rupa/z/archive/v${VERSION}.tar.gz
+
+src_compile() {
+    return
+}
+
+src_install() {
+    dobin z.sh
+    doman z.1
+}

@@ -1,0 +1,18 @@
+NAME=bash-concurrent
+VERSION=2.4.0
+RELEASE=1
+CATEGORY=Private
+SUMMARY=${NAME}
+ARCH=noarch
+REQUIRES=cygwin
+SRC_URI=https://github.com/themattrix/bash-concurrent/archive/${VERSION}.tar.gz
+
+src_compile() {
+    return
+}
+
+src_install() {
+    dodir /usr/lib/bash-concurrent
+    insinto /usr/lib/bash-concurrent
+    doins concurrent.lib.sh
+}
