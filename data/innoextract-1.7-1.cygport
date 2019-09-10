@@ -1,0 +1,8 @@
+CATEGORY=Private
+SUMMARY=${PN}
+DEPEND='cmake ninja liblzma-devel libboost-devel zlib-devel libbz2-devel'
+CPPFLAGS=-D_GNU_SOURCE
+GIT_URI=https://github.com/dscharrer/${PN}.git
+GIT_TAG=${PV}
+inherit git
+inherit cmake
