@@ -1,11 +1,9 @@
-NAME=bash-concurrent
-VERSION=2.4.0
-RELEASE=1
 CATEGORY=Private
-SUMMARY=${NAME}
+SUMMARY=${PN}
 ARCH=noarch
-REQUIRES=cygwin
-SRC_URI=https://github.com/themattrix/bash-concurrent/archive/${VERSION}.tar.gz
+GIT_URI=https://github.com/themattrix/${PN}.git
+GIT_TAG=${PV}
+inherit git
 
 src_compile() {
     return

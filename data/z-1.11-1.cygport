@@ -1,0 +1,15 @@
+CATEGORY=Private
+SUMMARY=${PN}
+ARCH=noarch
+GIT_URI=https://github.com/rupa/${PN}.git
+GIT_TAG=v${PV}
+inherit git
+
+src_compile() {
+    return
+}
+
+src_install() {
+    dobin z.sh
+    doman z.1
+}
