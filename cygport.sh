@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 packages=(
+calm
 cmake
 cygport
 git
