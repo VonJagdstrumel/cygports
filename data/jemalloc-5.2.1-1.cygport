@@ -1,0 +1,13 @@
+CATEGORY=Private
+SUMMARY=${PN}
+DEPEND=libxslt
+CPPFLAGS=-D_GNU_SOURCE
+NO_AUTOHEADER=true
+PATCH_URI=${PF}.diff
+GIT_URI=https://github.com/jemalloc/${PN}.git
+GIT_TAG=${PV}
+inherit git
+
+src_install() {
+    cyginstall -j1
+}

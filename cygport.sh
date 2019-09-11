@@ -11,6 +11,7 @@ libjpeg-devel
 liblzma-devel
 libncurses-devel
 libreadline-devel
+libxslt
 ninja
 zlib-devel
 )
@@ -23,3 +24,5 @@ chmod +x setup-x86_64.exe
 for i in data/*.cygport
     do cygport "$i" finish fetch all
 done
+
+ls data/*.{noarch,x86_64}/dist/*/*.{tar.xz,hint} | cat
