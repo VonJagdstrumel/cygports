@@ -1,0 +1,7 @@
+CATEGORY=Private
+SUMMARY=${PN}
+DEPEND=cmake
+GIT_URI=https://github.com/microsoft/${PN}.git
+GIT_TAG=v${PV}
+inherit git
+inherit cmake
