@@ -22,7 +22,7 @@ chmod +x setup-x86_64.exe
 ./setup-x86_64.exe -B -q -d -s http://ftp.fau.de/cygwin/ -R cygwin $(for i in ${packages[@]}; do echo -P $i; done)
 
 for i in data/*.cygport
-    do cygport "$i" finish fetch all
+    do cygport "$i" finish fetch all | tee "${i%.cygport}.log"
 done
 
 ls data/*.{noarch,x86_64}/dist/*/*.{tar.xz,hint} | cat
