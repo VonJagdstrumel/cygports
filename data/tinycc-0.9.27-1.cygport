@@ -1,0 +1,12 @@
+CATEGORY=Private
+SUMMARY=${PN}
+GIT_URI=https://repo.or.cz/${PN}.git
+GIT_TAG=release_${PV//./_}
+inherit git
+
+src_compile() {
+    cp -a . ${B}
+    cd ${B}
+    cygconf
+    cygmake
+}
