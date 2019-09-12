@@ -1,0 +1,8 @@
+CATEGORY=Private
+SUMMARY=${PN}
+DEPEND=cmake
+CPPFLAGS=-D_GNU_SOURCE
+GIT_URI=https://github.com/fmtlib/${PN}.git
+GIT_TAG=${PV}
+inherit git
+inherit cmake
