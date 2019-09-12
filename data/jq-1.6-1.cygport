@@ -1,7 +1,0 @@
-CATEGORY=Private
-SUMMARY=${PN}
-CYGCONF_ARGS='--with-oniguruma=builtin'
-MAKEOPTS='LDFLAGS=-no-undefined'
-GIT_URI=https://github.com/stedolan/${PN}.git
-GIT_TAG=${P}
-inherit git
