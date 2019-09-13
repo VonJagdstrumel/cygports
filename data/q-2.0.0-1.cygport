@@ -1,0 +1,22 @@
+CATEGORY=Private
+SUMMARY=${PN}
+ARCH=noarch
+DEPEND='python2 ruby-devel'
+GIT_URI=https://github.com/harelba/${PN}.git
+GIT_TAG=${PV}
+inherit git
+
+src_compile() {
+    cd ${S}
+    lndirs
+    cd ${B}
+    gem install -i gem -n gem/bin --no-user-install ronn
+    gem/bin/ronn doc/USAGE.markdown
+    mv doc/USAGE doc/q.1
+}
+
+src_install() {
+    cd ${B}
+    dobin bin/q
+    doman doc/q.1
+}
