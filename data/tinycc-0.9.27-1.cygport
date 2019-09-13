@@ -5,6 +5,7 @@ GIT_TAG=release_${PV//./_}
 inherit git
 
 src_compile() {
+    cd ${S}
     lndirs
     cd ${B}
     cygconf

@@ -6,10 +6,12 @@ GIT_REV=6f5af893a3aba29d54005366ba88c3b10c72bcb6
 inherit git
 
 src_compile() {
-    return
+    cd ${S}
+    lndirs
 }
 
 src_install() {
+    cd ${B}
     dobin liquidprompt
     insinto /etc
     newins liquidpromptrc-dist liquidpromptrc

@@ -19,9 +19,11 @@ dir_install() {
 }
 
 src_compile() {
-    return
+    cd ${S}
+    lndirs
 }
 
 src_install() {
+    cd ${B}
     dir_install lib /usr/lib/bash-oo
 }

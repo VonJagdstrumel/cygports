@@ -6,10 +6,12 @@ GIT_TAG=${PV}
 inherit git
 
 src_compile() {
-    return
+    cd ${S}
+    lndirs
 }
 
 src_install() {
+    cd ${B}
     dodir /usr/lib/bash-concurrent
     insinto /usr/lib/bash-concurrent
     doins concurrent.lib.sh

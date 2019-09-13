@@ -6,10 +6,12 @@ GIT_TAG=v${PV}
 inherit git
 
 src_compile() {
-    return
+    cd ${S}
+    lndirs
 }
 
 src_install() {
-    dobin z.sh
+    cd ${B}
+    newbin z.sh z
     doman z.1
 }

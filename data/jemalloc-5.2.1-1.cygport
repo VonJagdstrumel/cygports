@@ -9,5 +9,6 @@ GIT_TAG=${PV}
 inherit git
 
 src_install() {
+    cd ${B}
     cyginstall -j1
 }
