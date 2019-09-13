@@ -1,0 +1,15 @@
+calm
+cmake
+cygport
+git
+libboost-devel
+libbz2-devel
+libjpeg-devel
+liblzma-devel
+libncurses-devel
+libreadline-devel
+libxslt
+ninja
+python2
+ruby-devel
+zlib-devel

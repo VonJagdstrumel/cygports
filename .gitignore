@@ -1,5 +1,4 @@
-setup-x86_64.exe
 cygwin/
+data/*.log
 data/*.tar.bz2
 data/*/
-data/*.log
