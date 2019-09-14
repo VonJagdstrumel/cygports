@@ -10,7 +10,7 @@
 * Make every package defined in `data`:
 
 ```sh
-./cygport.sh data
+./cygport.sh
 ```
 
 * Or make only one:
@@ -19,5 +19,10 @@
 cygport data/my-package-1.0-1.cygport finish fetch all
 ```
 
-* Fresh packages are available in `data/*.{noarch,x86_64}/dist`.
 * Logs are available in `data/*.{noarch,x86_64}/log`.
+* Fresh packages are available in `data/*.{noarch,x86_64}/dist`.
+* Serve packages at `http://0.0.0.0:8000/`:
+
+```sh
+./server.sh
+```

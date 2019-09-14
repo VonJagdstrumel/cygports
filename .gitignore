@@ -1,4 +1,4 @@
 cygwin/
-data/*.log
 data/*.tar.bz2
 data/*/
+dist/
