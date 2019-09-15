@@ -6,8 +6,10 @@ libboost-devel
 libbz2-devel
 libjpeg-devel
 liblzma-devel
+liblzo2-devel
 libncurses-devel
 libreadline-devel
+libssl-devel
 libxslt
 ninja
 python2
