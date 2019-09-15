@@ -8,6 +8,7 @@ src_compile() {
     cd ${S}
     lndirs
     cd ${B}
-    cygconf
+    prefix=$(__host_prefix)
+    cygconf --tccdir=$prefix/lib/tcc --bindir=$prefix/bin --docdir=$prefix/share/doc --libdir=$prefix/lib
     cygmake
 }
