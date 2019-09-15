@@ -1,0 +1,9 @@
+CATEGORY=Private
+SUMMARY=${PN}
+DEPEND='cmake libssl-devel libuv-devel zlib-devel'
+CPPFLAGS=-D_GNU_SOURCE
+PATCH_URI=${PF}.diff
+GIT_URI=https://github.com/h2o/${PN}.git
+GIT_TAG=v${PV}
+inherit git
+inherit cmake

@@ -10,6 +10,7 @@ liblzo2-devel
 libncurses-devel
 libreadline-devel
 libssl-devel
+libuv-devel
 libxslt
 ninja
 python2
