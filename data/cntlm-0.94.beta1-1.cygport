@@ -1,0 +1,14 @@
+CATEGORY='Net Web'
+SUMMARY=${PN}
+GIT_URI=https://github.com/versat/${PN}.git
+GIT_REV=f082ce312d6914097eb0faa68f4f8c637660c0d1
+inherit git
+
+src_compile() {
+    cd ${S}
+    lndirs
+    cd ${B}
+    mv Makefile Makefile.gcc
+    cygconf
+    cygmake
+}
