@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY='Text Utils'
 SUMMARY=${PN}
 ARCH=noarch
 REQUIRES=python27-six

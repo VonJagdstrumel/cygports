@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY=Devel
 SUMMARY=${PN}
 DEPEND=cmake
 GIT_URI=https://github.com/microsoft/${PN}.git
