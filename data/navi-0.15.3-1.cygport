@@ -1,0 +1,18 @@
+CATEGORY='Shells Utils'
+SUMMARY=${PN}
+ARCH=noarch
+GIT_URI=https://github.com/denisidoro/${PN}.git
+GIT_TAG=v${PV}
+inherit git
+
+src_compile() {
+    cd ${S}
+    lndirs
+}
+
+src_install() {
+    cd ${B}
+    bindir=$(__host_prefix)/bin
+    dodir ${bindir}
+    ./scripts/install ${D}${bindir}
+}
