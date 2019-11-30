@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY='Libs Shells'
 SUMMARY=${PN}
 ARCH=noarch
 GIT_URI=https://github.com/themattrix/${PN}.git
@@ -12,7 +12,7 @@ src_compile() {
 
 src_install() {
     cd ${B}
-    dodir /usr/lib/bash-concurrent
-    insinto /usr/lib/bash-concurrent
+    dodir /usr/lib/${PN}
+    insinto /usr/lib/${PN}
     doins concurrent.lib.sh
 }

@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY=Web
 SUMMARY=${PN}
 DEPEND='cmake libssl-devel libuv-devel zlib-devel'
 CPPFLAGS=-D_GNU_SOURCE

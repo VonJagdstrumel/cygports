@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY=Devel
 SUMMARY=${PN}
 GIT_URI=https://repo.or.cz/${PN}.git
 GIT_TAG=release_${PV//./_}

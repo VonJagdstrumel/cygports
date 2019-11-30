@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY=Utils
 SUMMARY=${PN}
 ARCH=noarch
 GIT_URI=https://github.com/rupa/${PN}.git

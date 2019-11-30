@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY='Graphics Utils'
 SUMMARY=${PN}
 DEPEND=libjpeg-devel
 GIT_URI=https://github.com/tjko/${PN}.git

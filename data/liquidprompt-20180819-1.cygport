@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY=Shells
 SUMMARY=${PN}
 ARCH=noarch
 GIT_URI=https://github.com/nojhan/${PN}.git

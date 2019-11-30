@@ -1,4 +1,4 @@
-CATEGORY=Private
+CATEGORY='Archive Utils'
 SUMMARY=${PN}
 DEPEND='cmake ninja liblzma-devel libboost-devel zlib-devel libbz2-devel'
 CPPFLAGS=-D_GNU_SOURCE
