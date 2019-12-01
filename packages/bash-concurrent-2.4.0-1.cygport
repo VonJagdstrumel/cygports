@@ -1,9 +1,8 @@
 CATEGORY='Libs Shells'
-SUMMARY=${PN}
-ARCH=noarch
 GIT_URI=https://github.com/themattrix/${PN}.git
 GIT_TAG=${PV}
-inherit git
+ARCH=noarch
+. ${top}/../base.cyg
 
 src_compile() {
     cd ${S}

@@ -1,0 +1,6 @@
+CATEGORY=Devel
+GIT_URI=https://github.com/fmtlib/${PN}.git
+GIT_TAG=${PV}
+DEPEND=cmake
+CPPFLAGS=-D_GNU_SOURCE
+. ${top}/../base.cyg

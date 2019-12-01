@@ -1,18 +1,17 @@
 CATEGORY='Text Utils'
-SUMMARY=${PN}
+GIT_URI=https://github.com/harelba/${PN}.git
+GIT_TAG=${PV}
 ARCH=noarch
 REQUIRES=python27-six
 DEPEND='python2 ruby-devel'
-GIT_URI=https://github.com/harelba/${PN}.git
-GIT_TAG=${PV}
-inherit git
+. ${top}/../base.cyg
 
 src_compile() {
     cd ${S}
     lndirs
     cd ${B}
-    gem install -i gem -n gem/bin --no-user-install ronn
-    gem/bin/ronn doc/USAGE.markdown
+    gem install ronn -i gems -n gems/bin --no-user-install
+    gems/bin/ronn doc/USAGE.markdown
     mv doc/USAGE doc/q.1
 }
 

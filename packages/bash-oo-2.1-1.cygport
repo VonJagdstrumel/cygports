@@ -1,0 +1,22 @@
+CATEGORY='Libs Shells'
+GIT_URI=https://github.com/niieani/${PN}-framework.git
+GIT_TAG=${PV}
+ARCH=noarch
+. ${top}/../base.cyg
+
+src_compile() {
+    cd ${S}
+    lndirs
+}
+
+src_install() {
+    cd ${B}/lib
+
+    find . -type d | while read -r i_dir; do
+        insinto /usr/lib/${PN}/${i_dir}
+
+        find -L ${i_dir} -maxdepth 1 -type f | while read -r i_file; do
+            doins ${i_file}
+        done
+    done
+}

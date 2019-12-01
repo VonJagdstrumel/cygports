@@ -1,9 +1,8 @@
 CATEGORY='Graphics Utils'
-SUMMARY=${PN}
-DEPEND=libjpeg-devel
 GIT_URI=https://github.com/tjko/${PN}.git
 GIT_TAG=RELEASE.${PV}
-inherit git
+DEPEND=libjpeg-devel
+. ${top}/../base.cyg
 
 src_compile() {
     cd ${S}

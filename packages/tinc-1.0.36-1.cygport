@@ -1,6 +1,5 @@
 CATEGORY=Net
-SUMMARY=${PN}
-DEPEND='libssl-devel liblzo2-devel zlib-devel'
 GIT_URI=https://github.com/gsliepen/${PN}.git
 GIT_TAG=release-${PV}
-inherit git
+DEPEND='libssl-devel liblzo2-devel zlib-devel'
+. ${top}/../base.cyg

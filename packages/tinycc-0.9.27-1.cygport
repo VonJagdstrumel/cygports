@@ -1,8 +1,7 @@
 CATEGORY=Devel
-SUMMARY=${PN}
 GIT_URI=https://repo.or.cz/${PN}.git
 GIT_TAG=release_${PV//./_}
-inherit git
+. ${top}/../base.cyg
 
 src_compile() {
     cd ${S}

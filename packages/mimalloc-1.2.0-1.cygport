@@ -1,7 +1,5 @@
 CATEGORY=Devel
-SUMMARY=${PN}
-DEPEND=cmake
 GIT_URI=https://github.com/microsoft/${PN}.git
 GIT_TAG=v${PV}
-inherit git
-inherit cmake
+DEPEND=cmake
+. ${top}/../base.cyg

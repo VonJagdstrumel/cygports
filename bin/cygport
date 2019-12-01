@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../packages" || exit
+(($#)) || set -- finish fetch all
+
+find . -maxdepth 1 -name '*.cygport' | while read -r i; do
+    cygport "$i" "$@"
+done

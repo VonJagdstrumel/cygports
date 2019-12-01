@@ -1,9 +1,8 @@
 CATEGORY=Shells
-SUMMARY=${PN}
-ARCH=noarch
 GIT_URI=https://github.com/nojhan/${PN}.git
 GIT_REV=6f5af893a3aba29d54005366ba88c3b10c72bcb6
-inherit git
+ARCH=noarch
+. ${top}/../base.cyg
 
 src_compile() {
     cd ${S}
