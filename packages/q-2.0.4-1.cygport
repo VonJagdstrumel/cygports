@@ -11,7 +11,7 @@ src_compile() {
     lndirs
     cd ${B}
     gem install ronn -i gems -n gems/bin --no-user-install
-    gems/bin/ronn doc/USAGE.markdown
+    GEM_PATH=gems gems/bin/ronn doc/USAGE.markdown
     mv doc/USAGE doc/q.1
 }
 
