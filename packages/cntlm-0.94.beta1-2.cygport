@@ -1,6 +1,6 @@
 CATEGORY='Net Web'
 GIT_URI=https://github.com/versat/${PN}.git
-GIT_REV=f082ce312d6914097eb0faa68f4f8c637660c0d1
+GIT_REV=b1cccf5152ced86806ad1b980e301f53fd11f74f
 . ${top}/../base.cyg
 
 src_compile() {
