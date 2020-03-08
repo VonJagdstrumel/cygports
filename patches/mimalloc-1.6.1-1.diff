@@ -1,0 +1,10 @@
+--- src/os.c
++++ src/os.c
+@@ -867,7 +867,6 @@ static void* mi_os_alloc_huge_os_pagesx(void* addr, size_t size, int numa_node)
+ }
+ 
+ #elif defined(MI_OS_USE_MMAP) && (MI_INTPTR_SIZE >= 8)
+-#include <sys/syscall.h>
+ #ifndef MPOL_PREFERRED
+ #define MPOL_PREFERRED 1
+ #endif
