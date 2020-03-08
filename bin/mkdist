@@ -11,5 +11,3 @@ for arch in noarch x86 x86_64 ; do
     bzip2 < $arch/setup.ini > $arch/setup.bz2
     xz < $arch/setup.ini > $arch/setup.xz
 done
-
-python -m SimpleHTTPServer
