@@ -1,0 +1,12 @@
+CATEGORY=Interpreters
+GIT_URI=https://github.com/ThomasDickey/${PN}-snapshots.git
+GIT_TAG=t${PV##*.}
+. ${top}/../base.cyg
+
+src_compile() {
+    cd ${S}
+    lndirs
+    cd ${B}
+    cygconf
+    cygmake
+}
