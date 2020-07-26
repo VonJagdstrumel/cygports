@@ -5,9 +5,9 @@ mkdir -p dist
 
 for arch in noarch x86 x86_64 ; do
     mkdir -p dist/$arch/release
-    find packages -mindepth 3 -path "*.$arch/dist/*" -prune -exec cp -ru {} dist/$arch/release \;
+    find packages -mindepth 4 -path "*.$arch/dist/*" -prune -exec cp -ru {} dist/$arch/release \;
     [[ $arch == noarch ]] && continue
-    mksetupini --arch $arch --inifile=dist/$arch/setup.ini --releasearea=dist --disable-check=missing-required-package,missing-depended-package
+    mksetupini --arch $arch --inifile dist/$arch/setup.ini --releasearea dist --disable-check missing-required-package,missing-depended-package
     bzip2 < dist/$arch/setup.ini > dist/$arch/setup.bz2
     xz < dist/$arch/setup.ini > dist/$arch/setup.xz
 done

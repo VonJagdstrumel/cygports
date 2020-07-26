@@ -3,6 +3,6 @@
 cd "$(dirname "$0")/.." || exit
 (($#)) || set -- finish fetch all
 
-find packages -maxdepth 2 -name '*.cygport' | while read -r i; do
+find packages -mindepth 2 -maxdepth 2 -name '*.cygport' | while read -r i; do
     CC='ccache gcc' cygport "$i" "$@"
 done
