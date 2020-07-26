@@ -1,0 +1,24 @@
+CATEGORY='Utils Web'
+GIT_URI=https://github.com/acmesh-official/${PN/-/.}.git
+GIT_TAG=${PV}
+ARCH=noarch
+. ${top}/../base.cyg
+
+src_compile() {
+    cd ${S}
+    lndirs
+}
+
+src_install() {
+    cd ${B}
+    exeinto /usr/share/${PN/-/.}
+    doexe acme.sh
+    exeinto /usr/share/${PN/-/.}/deploy
+    doexe deploy/*
+    exeinto /usr/share/${PN/-/.}/dnsapi
+    doexe dnsapi/*
+    exeinto /usr/share/${PN/-/.}/notify
+    doexe notify/*
+    dodir /usr/bin
+    dosym /usr/share/${PN/-/.}/acme.sh /usr/bin/acme.sh
+}
