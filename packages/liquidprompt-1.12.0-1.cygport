@@ -1,6 +1,6 @@
 CATEGORY=Shells
 GIT_URI=https://github.com/nojhan/${PN}.git
-GIT_REV=6f5af893a3aba29d54005366ba88c3b10c72bcb6
+GIT_TAG=v${PV}
 ARCH=noarch
 . ${top}/../base.cyg
 
