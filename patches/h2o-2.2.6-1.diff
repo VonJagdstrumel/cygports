@@ -1,5 +1,5 @@
---- c/deps/libyrmcds/yrmcds_portability.h
-+++ w/deps/libyrmcds/yrmcds_portability.h
+--- a/deps/libyrmcds/yrmcds_portability.h
++++ b/deps/libyrmcds/yrmcds_portability.h
 @@ -44,7 +44,7 @@
  #  define be64toh(x) BE_IN64(x)
  #  define le64toh(x) LE_IN64(x)

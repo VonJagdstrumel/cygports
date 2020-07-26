@@ -1,5 +1,5 @@
---- src/os.c
-+++ src/os.c
+--- a/src/os.c
++++ b/src/os.c
 @@ -867,7 +867,6 @@ static void* mi_os_alloc_huge_os_pagesx(void* addr, size_t size, int numa_node)
  }
  

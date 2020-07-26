@@ -1,5 +1,5 @@
---- configure.ac
-+++ configure.ac
+--- a/configure.ac
++++ b/configure.ac
 @@ -729,7 +729,6 @@ case "${host}" in
  	fi
  	case "${host}" in
@@ -8,8 +8,8 @@
  	    ;;
  	  *)
  	    ;;
---- include/jemalloc/internal/jemalloc_internal_decls.h
-+++ include/jemalloc/internal/jemalloc_internal_decls.h
+--- a/include/jemalloc/internal/jemalloc_internal_decls.h
++++ b/include/jemalloc/internal/jemalloc_internal_decls.h
 @@ -19,7 +19,6 @@
  #  include <sys/param.h>
  #  include <sys/mman.h>
