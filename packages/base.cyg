@@ -1,5 +1,5 @@
 SUMMARY=${PN}
 RESTRICT='debuginfo postinst-doc'
-[[ -f ${top}/../patches/${PF}.diff ]] && PATCH_URI=../patches/${PF}.diff
+[[ -f ${top}/${PN}.patch ]] && PATCH_URI=${top}/${PN}.patch
 [[ ${GIT_URI} ]] && inherit git
 [[ ${DEPEND} != *cmake* ]] || inherit cmake

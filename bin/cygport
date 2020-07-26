@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")/../packages" || exit
+cd "$(dirname "$0")/.." || exit
 (($#)) || set -- finish fetch all
 
-find . -maxdepth 1 -name '*.cygport' | while read -r i; do
-    cygport "$i" "$@"
+find packages -maxdepth 2 -name '*.cygport' | while read -r i; do
+    CC='ccache gcc' cygport "$i" "$@"
 done

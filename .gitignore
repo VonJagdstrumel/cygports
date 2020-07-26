@@ -1,4 +1,4 @@
 cygwin/
-packages/*.tar.bz2
-packages/*/
+packages/*/*.tar.bz2
+packages/*/*/
 dist/
