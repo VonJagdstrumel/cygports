@@ -1,0 +1,13 @@
+--- a/configure
++++ b/configure
+@@ -104,10 +104,6 @@
+ 		--enable-kerberos)
+ 			printf "#define ENABLE_KERBEROS" >> $CONFIG
+ 			;;
+-		*)
+-			echo "Unknown flag $1"
+-			rm -f $CONFIG
+-			;;
+ 	esac
+ 	shift
+ done
