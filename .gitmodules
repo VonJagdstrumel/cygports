@@ -1,3 +1,42 @@
 [submodule "packages/python39"]
 	path = packages/python39
 	url = git@github.com:VonJagdstrumel/python39.git
+[submodule "packages/python-asn1crypto"]
+	path = packages/python-asn1crypto
+	url = git@github.com:cygwinports/python-asn1crypto.git
+[submodule "packages/python-cffi"]
+	path = packages/python-cffi
+	url = git@github.com:VonJagdstrumel/python-cffi.git
+[submodule "packages/python-cryptography"]
+	path = packages/python-cryptography
+	url = git@github.com:VonJagdstrumel/python-cryptography.git
+[submodule "packages/python-idna"]
+	path = packages/python-idna
+	url = git@github.com:cygwinports/python-idna.git
+[submodule "packages/python-imaging"]
+	path = packages/python-imaging
+	url = git@github.com:VonJagdstrumel/python-imaging.git
+[submodule "packages/python-lxml"]
+	path = packages/python-lxml
+	url = git@github.com:cygwinports/python-lxml.git
+[submodule "packages/python-olefile"]
+	path = packages/python-olefile
+	url = git@github.com:cygwinports/python-olefile.git
+[submodule "packages/python-pip"]
+	path = packages/python-pip
+	url = git@github.com:VonJagdstrumel/python-pip.git
+[submodule "packages/python-ply"]
+	path = packages/python-ply
+	url = git@github.com:VonJagdstrumel/python-ply.git
+[submodule "packages/python-pycparser"]
+	path = packages/python-pycparser
+	url = git@github.com:VonJagdstrumel/python-pycparser.git
+[submodule "packages/python-setuptools"]
+	path = packages/python-setuptools
+	url = git@github.com:VonJagdstrumel/python-setuptools.git
+[submodule "packages/python-six"]
+	path = packages/python-six
+	url = git@github.com:cygwinports/python-six.git
+[submodule "packages/python-wheel"]
+	path = packages/python-wheel
+	url = git@github.com:VonJagdstrumel/python-wheel.git
