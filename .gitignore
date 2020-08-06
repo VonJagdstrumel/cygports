@@ -1,4 +1,8 @@
 cygwin/
-packages/*/*.tar.bz2
-packages/*/*/
 dist/
+packages/*/*.noarch/
+packages/*/*.tar.bz2
+packages/*/*.tar.gz
+packages/*/*.tar.xz
+packages/*/*.x86_64/
+packages/*/*.zip
