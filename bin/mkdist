@@ -3,7 +3,7 @@
 cd "$(dirname "$0")/.." || exit
 mkdir -p dist
 
-for arch in noarch x86 x86_64 ; do
+for arch in noarch x86_64 ; do
     mkdir -p dist/$arch/release
     find packages -mindepth 4 -path "*.$arch/dist/*" -prune -exec cp -ru {} dist/$arch/release \;
     [[ $arch == noarch ]] && continue
