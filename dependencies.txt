@@ -35,7 +35,9 @@ libX11-xcb-devel
 libX11-xcb1
 libxcb-devel
 libxcb1
+libxml2-devel
 libxslt
+libxslt-devel
 ninja
 python2
 python39-devel

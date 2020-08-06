@@ -18,7 +18,7 @@
 	url = git@github.com:VonJagdstrumel/python-imaging.git
 [submodule "packages/python-lxml"]
 	path = packages/python-lxml
-	url = git@github.com:cygwinports/python-lxml.git
+	url = git@github.com:VonJagdstrumel/python-lxml.git
 [submodule "packages/python-olefile"]
 	path = packages/python-olefile
 	url = git@github.com:cygwinports/python-olefile.git
