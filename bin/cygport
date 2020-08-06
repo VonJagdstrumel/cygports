@@ -4,5 +4,5 @@ cd "$(dirname "$0")/.." || exit
 (($#)) || set -- finish fetch all
 
 find packages -mindepth 2 -maxdepth 2 -name '*.cygport' | while read -r i; do
-    CC='ccache gcc' cygport "$i" "$@"
+    PYTHON_WHEEL_VERSIONS=3.9 CC='ccache gcc' cygport "$i" "$@"
 done
