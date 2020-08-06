@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")/.." || exit
-mkdir -p dist
 
 for arch in noarch x86_64 ; do
     mkdir -p dist/$arch/release
     find packages -mindepth 4 -path "*.$arch/dist/*" -prune -exec cp -ru {} dist/$arch/release \;
     [[ $arch == noarch ]] && continue
-    mksetupini --arch $arch --inifile dist/$arch/setup.ini --releasearea dist --disable-check missing-required-package,missing-depended-package
-    bzip2 < dist/$arch/setup.ini > dist/$arch/setup.bz2
-    xz < dist/$arch/setup.ini > dist/$arch/setup.xz
+    pushd dist/$arch > /dev/null
+    mksetupini --arch $arch --inifile setup.ini --releasearea .. --disable-check missing-required-package,missing-depended-package
+    bzip2 < setup.ini > setup.bz2
+    xz < setup.ini > setup.xz
+
+    for setup in setup.{ini,bz2,xz}; do
+        gpg2 --yes -o $setup.sig -b $setup
+    done
+
+    sha512sum -t setup.* >> sha512.sum
+    popd > /dev/null
 done

@@ -3,6 +3,7 @@ ccache
 cmake
 cygport
 git
+gnupg2
 lcms2
 libboost-devel
 libbz2-devel
