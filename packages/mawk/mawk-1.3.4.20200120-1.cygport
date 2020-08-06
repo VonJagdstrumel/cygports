@@ -4,7 +4,6 @@ GIT_TAG=t${PV##*.}
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
     cd ${B}
     cygconf

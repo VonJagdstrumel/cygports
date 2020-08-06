@@ -5,7 +5,6 @@ ARCH=noarch
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
 }
 

@@ -7,7 +7,6 @@ DEPEND='python2 ruby-devel'
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
     cd ${B}
     gem install ronn -i gems -n gems/bin --no-user-install

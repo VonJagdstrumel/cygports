@@ -4,7 +4,6 @@ GIT_TAG=release_${PV//./_}
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
     cd ${B}
     cygconf --tccdir=/usr/lib/tcc --bindir=/usr/bin --docdir=/usr/share/doc --libdir=/usr/lib

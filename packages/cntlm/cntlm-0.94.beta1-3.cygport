@@ -4,7 +4,6 @@ GIT_REV=90e3126c7528b9e4eb6a5f7754e44c6d151fff23
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
     cd ${B}
     mv Makefile Makefile.gcc

@@ -5,7 +5,6 @@ DEPEND=libjpeg-devel
 . ${top}/../base.cyg
 
 src_compile() {
-    cd ${S}
     lndirs
     cd ${B}
     cygconf
