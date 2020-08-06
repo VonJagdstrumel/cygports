@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")/.." || exit
-(($#)) || set -- finish fetch all
+export PYTHON_WHEEL_VERSIONS=3.9 CC='ccache gcc'
 
-find packages -mindepth 2 -maxdepth 2 -name '*.cygport' | while read -r i; do
-    PYTHON_WHEEL_VERSIONS=3.9 CC='ccache gcc' cygport "$i" "$@"
+for cp_file in packages/python-*/*.cygport; do
+    cygport "$cp_file" ${@-finish fetch all}
 done
