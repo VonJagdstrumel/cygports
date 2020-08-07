@@ -1,0 +1,12 @@
+--- origsrc/luarocks/configure
++++ src/luarocks/configure
+@@ -315,9 +315,6 @@ do
+       echo "The suffix is automatically detected."
+       ;;
+ 
+-   *)
+-      die "Error: Unknown flag: $1"
+-      ;;
+    esac
+    shift
+ done

@@ -1,0 +1,12 @@
+CATEGORY=Lua
+GIT_URI=https://github.com/luarocks/${PN}.git
+GIT_TAG=v${PV}
+DEPEND=lua-devel
+. ${top}/../base.cyg
+
+src_compile() {
+    lndirs
+    cd ${B}
+    cygconf
+    cygmake
+}

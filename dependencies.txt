@@ -26,6 +26,7 @@ libwebp
 libwebp-devel
 libX11-xcb-devel
 libxslt-devel
+lua-devel
 ninja
 python39
 python39-devel
