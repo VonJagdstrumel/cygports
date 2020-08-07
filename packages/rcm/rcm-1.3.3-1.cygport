@@ -1,0 +1,14 @@
+CATEGORY=Utils
+GIT_URI=https://github.com/thoughtbot/${PN}.git
+GIT_TAG=v${PV}
+. ${top}/../base.cyg
+
+src_compile() {
+    cd ${S}
+    cygautoreconf
+    gem install mustache -i gems -n gems/bin --no-user-install
+    GEM_PATH=gems PATH+=:gems/bin maint/autocontrib man/rcm.7.mustache
+    cd ${B}
+    cygconf
+    cygmake
+}
