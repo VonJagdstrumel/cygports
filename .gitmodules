@@ -40,3 +40,9 @@
 [submodule "packages/python-wheel"]
 	path = packages/python-wheel
 	url = git@github.com:VonJagdstrumel/python-wheel.git
+[submodule "packages/python-cython"]
+	path = packages/python-cython
+	url = git@github.com:VonJagdstrumel/python-cython.git
+[submodule "packages/python-numpy"]
+	path = packages/python-numpy
+	url = git@github.com:VonJagdstrumel/python-numpy.git
