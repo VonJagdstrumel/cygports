@@ -1,6 +1,5 @@
 CATEGORY='Libs Shells'
 GIT_URI=https://github.com/niieani/${PN}-framework.git
-GIT_TAG=${PV}
 ARCH=noarch
 . ${top}/../base.cyg
 

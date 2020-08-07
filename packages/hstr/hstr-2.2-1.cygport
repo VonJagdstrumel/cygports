@@ -1,5 +1,4 @@
 CATEGORY='Shells Utils'
 GIT_URI=https://github.com/dvorka/${PN}.git
-GIT_TAG=${PV}
 DEPEND='libncurses-devel libreadline-devel'
 . ${top}/../base.cyg
