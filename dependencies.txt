@@ -35,3 +35,4 @@ python39-wheel
 ruby-devel
 tcl-tix
 tcl-tk-devel
+zstd
