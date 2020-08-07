@@ -1,0 +1,83 @@
+--- origsrc/flatbuffers/tests/test.cpp
++++ src/flatbuffers/tests/test.cpp
+@@ -63,7 +63,7 @@ static_assert(flatbuffers::is_same<uint8
+ // clang-format on
+ 
+ // Shortcuts for the infinity.
+-static const auto infinityf = std::numeric_limits<float>::infinity();
++static const auto _infinityf = std::numeric_limits<float>::infinity();
+ static const auto infinityd = std::numeric_limits<double>::infinity();
+ 
+ using namespace MyGame::Example;
+@@ -688,7 +688,7 @@ static bool is_quiet_nan(double v) {
+ void TestMonsterExtraFloats() {
+   TEST_EQ(is_quiet_nan(1.0), false);
+   TEST_EQ(is_quiet_nan(infinityd), false);
+-  TEST_EQ(is_quiet_nan(-infinityf), false);
++  TEST_EQ(is_quiet_nan(-_infinityf), false);
+   TEST_EQ(is_quiet_nan(std::numeric_limits<float>::quiet_NaN()), true);
+   TEST_EQ(is_quiet_nan(std::numeric_limits<double>::quiet_NaN()), true);
+ 
+@@ -716,8 +716,8 @@ void TestMonsterExtraFloats() {
+   TEST_NOTNULL(def_extra);
+   TEST_EQ(is_quiet_nan(def_extra->f0()), true);
+   TEST_EQ(is_quiet_nan(def_extra->f1()), true);
+-  TEST_EQ(def_extra->f2(), +infinityf);
+-  TEST_EQ(def_extra->f3(), -infinityf);
++  TEST_EQ(def_extra->f2(), +_infinityf);
++  TEST_EQ(def_extra->f3(), -_infinityf);
+   TEST_EQ(is_quiet_nan(def_extra->d0()), true);
+   TEST_EQ(is_quiet_nan(def_extra->d1()), true);
+   TEST_EQ(def_extra->d2(), +infinityd);
+@@ -747,8 +747,8 @@ void TestMonsterExtraFloats() {
+   TEST_NOTNULL(extra);
+   TEST_EQ(is_quiet_nan(extra->f0()), true);
+   TEST_EQ(is_quiet_nan(extra->f1()), true);
+-  TEST_EQ(extra->f2(), +infinityf);
+-  TEST_EQ(extra->f3(), -infinityf);
++  TEST_EQ(extra->f2(), +_infinityf);
++  TEST_EQ(extra->f3(), -_infinityf);
+   TEST_EQ(is_quiet_nan(extra->d0()), true);
+   TEST_EQ(extra->d1(), +infinityd);
+   TEST_EQ(extra->d2(), -infinityd);
+@@ -756,8 +756,8 @@ void TestMonsterExtraFloats() {
+   TEST_NOTNULL(extra->fvec());
+   TEST_EQ(extra->fvec()->size(), 4);
+   TEST_EQ(extra->fvec()->Get(0), 1.0f);
+-  TEST_EQ(extra->fvec()->Get(1), -infinityf);
+-  TEST_EQ(extra->fvec()->Get(2), +infinityf);
++  TEST_EQ(extra->fvec()->Get(1), -_infinityf);
++  TEST_EQ(extra->fvec()->Get(2), +_infinityf);
+   TEST_EQ(is_quiet_nan(extra->fvec()->Get(3)), true);
+   TEST_NOTNULL(extra->dvec());
+   TEST_EQ(extra->dvec()->size(), 4);
+@@ -1920,8 +1920,8 @@ void IntegerBoundaryTest() {
+ 
+ void ValidFloatTest() {
+   // check rounding to infinity
+-  TEST_EQ(TestValue<float>("{ Y:+3.4029e+38 }", "float"), +infinityf);
+-  TEST_EQ(TestValue<float>("{ Y:-3.4029e+38 }", "float"), -infinityf);
++  TEST_EQ(TestValue<float>("{ Y:+3.4029e+38 }", "float"), +_infinityf);
++  TEST_EQ(TestValue<float>("{ Y:-3.4029e+38 }", "float"), -_infinityf);
+   TEST_EQ(TestValue<double>("{ Y:+1.7977e+308 }", "double"), +infinityd);
+   TEST_EQ(TestValue<double>("{ Y:-1.7977e+308 }", "double"), -infinityd);
+ 
+@@ -1962,12 +1962,12 @@ void ValidFloatTest() {
+   TEST_EQ(std::isnan(TestValue<float>(nullptr, "float=nan")), true);
+   TEST_EQ(std::isnan(TestValue<float>(nullptr, "float=-nan")), true);
+   // check inf
+-  TEST_EQ(TestValue<float>("{ Y:inf }", "float"), infinityf);
+-  TEST_EQ(TestValue<float>("{ Y:\"inf\" }", "float"), infinityf);
+-  TEST_EQ(TestValue<float>("{ Y:+inf }", "float"), infinityf);
+-  TEST_EQ(TestValue<float>("{ Y:-inf }", "float"), -infinityf);
+-  TEST_EQ(TestValue<float>(nullptr, "float=inf"), infinityf);
+-  TEST_EQ(TestValue<float>(nullptr, "float=-inf"), -infinityf);
++  TEST_EQ(TestValue<float>("{ Y:inf }", "float"), _infinityf);
++  TEST_EQ(TestValue<float>("{ Y:\"inf\" }", "float"), _infinityf);
++  TEST_EQ(TestValue<float>("{ Y:+inf }", "float"), _infinityf);
++  TEST_EQ(TestValue<float>("{ Y:-inf }", "float"), -_infinityf);
++  TEST_EQ(TestValue<float>(nullptr, "float=inf"), _infinityf);
++  TEST_EQ(TestValue<float>(nullptr, "float=-inf"), -_infinityf);
+   TestValue<double>(
+       "{ Y : [0.2, .2, 1.0, -1.0, -2., 2., 1e0, -1e0, 1.0e0, -1.0e0, -3.e2, "
+       "3.0e2] }",
