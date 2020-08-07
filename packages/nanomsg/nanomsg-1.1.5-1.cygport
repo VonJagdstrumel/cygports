@@ -1,0 +1,4 @@
+CATEGORY=Devel
+GIT_URI=https://github.com/nanomsg/${PN}.git
+DEPEND=cmake
+. ${top}/../base.cyg
