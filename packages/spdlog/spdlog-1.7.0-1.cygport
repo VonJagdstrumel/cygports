@@ -1,0 +1,5 @@
+CATEGORY=Devel
+GIT_URI=https://github.com/gabime/${PN}.git
+GIT_TAG=v${PV}
+DEPEND=cmake
+. ${top}/../base.cyg
