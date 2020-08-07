@@ -29,6 +29,7 @@ libxslt-devel
 lua-devel
 ninja
 python39
+python39-cython
 python39-devel
 python39-pip
 python39-ply
