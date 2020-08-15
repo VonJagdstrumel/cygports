@@ -1,0 +1,21 @@
+ORIG_PN="PyNaCl"
+inherit python-wheel
+
+NAME="python-nacl"
+VERSION="1.4.0"
+RELEASE="1"
+CATEGORY="Python"
+SUMMARY="Python binding to the Networking and Cryptography (NaCl) library"
+DESCRIPTION="PyNaCl is a Python binding to libsodium, which is a fork of the
+Networking and Cryptography library. These libraries have a stated goal of
+improving usability, security and speed. It supports Python 2.7 and 3.4+ as
+well as PyPy 2.6+."
+HOMEPAGE="https://pynacl.readthedocs.io/en/stable/"
+DEPEND="python3 python39-devel python39-cffi libsodium-devel"
+# Instruct nacl to use system-installed libsodium
+export SODIUM_INSTALL=system
+
+src_test() {
+  cd ${B}
+  ${PYTHON3} setup.py test || error "python3 tests failed"
+}

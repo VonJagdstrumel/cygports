@@ -17,6 +17,7 @@ liblzo2-devel
 libncurses-devel
 libraqm-devel
 libreadline-devel
+libsodium-devel
 libsqlite3-devel
 libssl-devel
 libtiff-devel
@@ -29,6 +30,7 @@ libxslt-devel
 lua-devel
 ninja
 python39
+python39-cffi
 python39-cython
 python39-devel
 python39-pip
