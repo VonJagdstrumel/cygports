@@ -1,4 +1,3 @@
 SUMMARY=${PN}
 RESTRICT='debuginfo postinst-doc'
 [[ -f ${top}/${PN}.patch ]] && PATCH_URI=${top}/${PN}.patch
-[[ ${DEPEND} != *cmake* ]] || inherit cmake

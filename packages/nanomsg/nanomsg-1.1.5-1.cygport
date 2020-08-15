@@ -1,4 +1,4 @@
 CATEGORY=Devel
 SRC_URI=https://github.com/nanomsg/${PN}/archive/${PV}.tar.gz
-DEPEND=cmake
+inherit cmake
 . ${top}/../base.cyg

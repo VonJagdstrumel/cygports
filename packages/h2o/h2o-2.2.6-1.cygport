@@ -1,5 +1,6 @@
 CATEGORY=Web
 SRC_URI=https://github.com/h2o/${PN}/archive/v${PV}.tar.gz
-DEPEND='cmake libssl-devel libuv-devel zlib-devel'
+DEPEND='libssl-devel libuv-devel zlib-devel'
 CPPFLAGS=-D_GNU_SOURCE
+inherit cmake
 . ${top}/../base.cyg

@@ -1,5 +1,6 @@
 CATEGORY='Archive Utils'
 SRC_URI=https://github.com/dscharrer/${PN}/archive/${PV}.tar.gz
-DEPEND='cmake ninja liblzma-devel libboost-devel zlib-devel libbz2-devel'
+DEPEND='ninja liblzma-devel libboost-devel zlib-devel libbz2-devel'
 CPPFLAGS=-D_GNU_SOURCE
+inherit cmake
 . ${top}/../base.cyg
