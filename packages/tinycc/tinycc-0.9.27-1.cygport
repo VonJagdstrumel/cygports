@@ -1,6 +1,6 @@
 CATEGORY=Devel
-GIT_URI=https://repo.or.cz/${PN}.git
-GIT_TAG=release_${PV//./_}
+SRC_URI=https://download.savannah.gnu.org/releases/${PN}/tcc-${PV}.tar.bz2
+SRC_DIR=tcc-${PV}
 . ${top}/../base.cyg
 
 src_compile() {

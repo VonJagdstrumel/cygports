@@ -1,6 +1,5 @@
 CATEGORY='Shells Utils'
-GIT_URI=https://github.com/denisidoro/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/denisidoro/${PN}/archive/v${PV}.tar.gz
 ARCH=noarch
 . ${top}/../base.cyg
 

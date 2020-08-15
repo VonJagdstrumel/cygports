@@ -1,5 +1,6 @@
 CATEGORY='Utils Web'
-GIT_URI=https://github.com/acmesh-official/${PN/-/.}.git
+SRC_URI=https://github.com/acmesh-official/${PN/-/.}/archive/${PV}.tar.gz
+SRC_DIR=${PN/-/.}-${PV}
 ARCH=noarch
 . ${top}/../base.cyg
 

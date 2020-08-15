@@ -1,6 +1,4 @@
 SUMMARY=${PN}
 RESTRICT='debuginfo postinst-doc'
 [[ -f ${top}/${PN}.patch ]] && PATCH_URI=${top}/${PN}.patch
-[[ ${GIT_BRANCH} || ${GIT_REV} || ${GIT_TAG} ]] || GIT_TAG=${PV}
-[[ ${GIT_URI} ]] && inherit git
 [[ ${DEPEND} != *cmake* ]] || inherit cmake

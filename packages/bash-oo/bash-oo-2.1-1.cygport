@@ -1,5 +1,6 @@
 CATEGORY='Libs Shells'
-GIT_URI=https://github.com/niieani/${PN}-framework.git
+SRC_URI=https://github.com/niieani/${PN}-framework/archive/${PV}.tar.gz
+SRC_DIR=${PN}-framework-${PV}
 ARCH=noarch
 . ${top}/../base.cyg
 

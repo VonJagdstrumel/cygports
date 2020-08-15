@@ -1,6 +1,6 @@
 CATEGORY=Interpreters
-GIT_URI=https://github.com/ThomasDickey/${PN}-snapshots.git
-GIT_TAG=t${PV##*.}
+SRC_URI=https://github.com/ThomasDickey/${PN}-snapshots/archive/t${PV##*.}.tar.gz
+SRC_DIR=${PN}-snapshots-t${PV##*.}
 . ${top}/../base.cyg
 
 src_compile() {

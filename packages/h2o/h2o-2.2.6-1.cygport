@@ -1,6 +1,5 @@
 CATEGORY=Web
-GIT_URI=https://github.com/h2o/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/h2o/${PN}/archive/v${PV}.tar.gz
 DEPEND='cmake libssl-devel libuv-devel zlib-devel'
 CPPFLAGS=-D_GNU_SOURCE
 . ${top}/../base.cyg

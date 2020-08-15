@@ -1,5 +1,5 @@
 CATEGORY=Devel
-GIT_URI=https://github.com/fmtlib/${PN}.git
+SRC_URI=https://github.com/fmtlib/${PN}/archive/${PV}.tar.gz
 DEPEND=cmake
 CPPFLAGS=-D_GNU_SOURCE
 . ${top}/../base.cyg

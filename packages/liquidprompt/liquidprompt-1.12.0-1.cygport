@@ -1,6 +1,5 @@
 CATEGORY=Shells
-GIT_URI=https://github.com/nojhan/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/nojhan/${PN}/archive/v${PV}.tar.gz
 ARCH=noarch
 . ${top}/../base.cyg
 

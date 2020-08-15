@@ -1,5 +1,4 @@
 CATEGORY=Devel
-GIT_URI=https://github.com/microsoft/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/microsoft/${PN}/archive/v${PV}.tar.gz
 DEPEND=cmake
 . ${top}/../base.cyg

@@ -1,6 +1,5 @@
 CATEGORY=Utils
-GIT_URI=https://github.com/thoughtbot/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/thoughtbot/${PN}/archive/v${PV}.tar.gz
 . ${top}/../base.cyg
 
 src_compile() {

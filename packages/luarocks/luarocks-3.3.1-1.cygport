@@ -1,6 +1,5 @@
 CATEGORY=Lua
-GIT_URI=https://github.com/luarocks/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/luarocks/${PN}/archive/v${PV}.tar.gz
 DEPEND=lua-devel
 . ${top}/../base.cyg
 

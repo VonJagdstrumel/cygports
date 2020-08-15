@@ -1,4 +1,4 @@
 CATEGORY=Devel
-GIT_URI=https://github.com/nanomsg/${PN}.git
+SRC_URI=https://github.com/nanomsg/${PN}/archive/${PV}.tar.gz
 DEPEND=cmake
 . ${top}/../base.cyg

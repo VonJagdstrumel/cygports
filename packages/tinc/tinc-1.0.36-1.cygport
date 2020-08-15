@@ -1,5 +1,5 @@
 CATEGORY=Net
-GIT_URI=https://github.com/gsliepen/${PN}.git
-GIT_TAG=release-${PV}
+SRC_URI=https://github.com/gsliepen/${PN}/archive/release-${PV}.tar.gz
+SRC_DIR=${PN}-release-${PV}
 DEPEND='libssl-devel liblzo2-devel zlib-devel'
 . ${top}/../base.cyg

@@ -1,6 +1,5 @@
 CATEGORY=Utils
-GIT_URI=https://github.com/rupa/${PN}.git
-GIT_TAG=v${PV}
+SRC_URI=https://github.com/rupa/${PN}/archive/v${PV}.tar.gz
 ARCH=noarch
 . ${top}/../base.cyg
 

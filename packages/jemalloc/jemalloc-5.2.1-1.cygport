@@ -1,5 +1,5 @@
 CATEGORY=Devel
-GIT_URI=https://github.com/jemalloc/${PN}.git
+SRC_URI=https://github.com/jemalloc/${PN}/archive/${PV}.tar.gz
 DEPEND=libxslt
 CPPFLAGS=-D_GNU_SOURCE
 NO_AUTOHEADER=true
