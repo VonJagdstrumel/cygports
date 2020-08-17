@@ -19,3 +19,5 @@ for arch in noarch x86_64 ; do
     sha512sum -t setup.* > sha512.sum
     popd > /dev/null
 done
+
+[[ $1 ]] && gpg2 --export -ao dist/pubring.asc $1!
