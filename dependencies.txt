@@ -14,6 +14,7 @@ libgdbm-devel
 libimagequant-devel
 libjpeg-devel
 liblcms2-devel
+liblua-devel
 liblzo2-devel
 libncurses-devel
 libraqm-devel
