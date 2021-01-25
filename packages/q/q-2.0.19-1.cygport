@@ -15,6 +15,6 @@ src_compile() {
 
 src_install() {
     cd ${B}
-    dobin bin/q
+    newbin bin/q.py q
     doman doc/q.1
 }
