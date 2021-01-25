@@ -5,6 +5,7 @@ cygport
 git
 gnupg2
 lcms2
+libX11-xcb-devel
 libboost-devel
 libbz2-devel
 libexpat-devel
@@ -25,9 +26,9 @@ libtirpc-devel
 libuv-devel
 libwebp
 libwebp-devel
-libX11-xcb-devel
 libxslt-devel
 lua-devel
+nasm
 ninja
 python39
 python39-cffi
