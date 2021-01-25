@@ -1,0 +1,5 @@
+CATEGORY=Devel
+SRC_URI=https://github.com/mozilla/${PN}/archive/v${PV}.tar.gz
+CYGCMAKE_ARGS='-DENABLE_STATIC=OFF'
+inherit cmake
+. ${top}/../base.cyg
