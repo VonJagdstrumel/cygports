@@ -1,5 +1,7 @@
 # Cygwin Ports
 
+## How to use
+
 * Download the [cygwin's setup](https://cygwin.com/install.html) and install base environment.
 * Install `cygport` and dependencies:
 
@@ -33,3 +35,9 @@ GNUPGHOME=/path/to/.gnupg bin/mkdist
 rm -rf packages/*/*.{noarch,x86_64}
 rm -f packages/*/*.{tar.bz2,tar.gz,tar.xz,zip}
 ```
+
+## Todo
+
+* Split large packages into smaller ones
+* Run automated tests
+* Set up a package server (or publish on `cygwin.com`/`sourceware.org`)
