@@ -28,7 +28,6 @@ libuv-devel
 libwebp
 libwebp-devel
 libxslt-devel
-lua-devel
 nasm
 ninja
 python39
