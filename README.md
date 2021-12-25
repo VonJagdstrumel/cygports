@@ -2,11 +2,16 @@
 
 ## How to use
 
-* Download the [cygwin's setup](https://cygwin.com/install.html) and install base environment.
 * Install `cygport` and dependencies:
 
 ```sh
-bin/setup path/to/setup-x86_64 < dependencies.txt
+bin/setup < dependencies.txt
+```
+
+* Launch terminal:
+
+```sh
+bin/start
 ```
 
 * Make every package defined in `packages`:

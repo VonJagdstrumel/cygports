@@ -4,20 +4,32 @@ cd "$(dirname "$0")/.." || exit
 
 for arch in noarch x86_64 ; do
     mkdir -p dist/$arch/release
-    find packages -mindepth 4 -path "*.$arch/dist/*" -prune -exec cp -ru {} dist/$arch/release \;
-    [[ $arch == noarch ]] && continue
+    find packages \
+        -mindepth 4 \
+        -path "*.$arch/dist/*" \
+        -prune \
+        -exec cp -ru {} dist/$arch/release \;
+    [[ $arch == noarch ]] && \
+        continue
     pushd dist/$arch > /dev/null
-    mksetupini --arch $arch --inifile setup.ini --releasearea .. --disable-check missing-required-package,missing-depended-package
+    mksetupini \
+        --arch $arch \
+        --inifile setup.ini \
+        --releasearea .. \
+        --disable-check missing-required-package,missing-depended-package
     bzip2 < setup.ini > setup.bz2
     xz < setup.ini > setup.xz
     zstd < setup.ini > setup.zst
 
     for setup in setup.{ini,bz2,xz,zst}; do
-        gpg2 --yes -o $setup.sig -b $setup
+        gpg2 --yes \
+            -o $setup.sig \
+            -b $setup
     done
 
     sha512sum -t setup.* > sha512.sum
     popd > /dev/null
 done
 
-[[ $1 ]] && gpg2 --export -ao dist/pubring.asc $1!
+[[ $1 ]] && \
+    gpg2 --yes --export -ao dist/pubring.asc "$1!"

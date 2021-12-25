@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")/.." || exit
-awk '{print "-P "$0}' | xargs -r "${1-./setup-x86_64}" -B -q -d -s http://ftp.fau.de/cygwin/ -R cygwin
+readonly temp_setup=$(mktemp)
+
+if type -P curl; then
+    curl -o "$temp_setup" https://cygwin.com/setup-x86_64.exe
+elif type -P wget; then
+    wget -O "$temp_setup" https://cygwin.com/setup-x86_64.exe
+else
+    exit 1
+fi
+
+awk '{print "-P "$0}' | \
+    xargs "$temp_setup" -B -q -d -s http://ftp.fau.de/cygwin/ -R cygwin
+rm -f "$temp_setup"

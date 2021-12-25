@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/.." || exit
+env -i "SYSTEMDRIVE=$SYSTEMDRIVE" \
+    cygwin/bin/cygstart cygwin/bin/mintty --dir . -
