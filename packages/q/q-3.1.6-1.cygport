@@ -1,5 +1,5 @@
 CATEGORY='Text Utils'
-SRC_URI=https://github.com/harelba/${PN}/archive/${PV}.tar.gz
+SRC_URI=https://github.com/harelba/${PN}/archive/v${PV}.tar.gz
 ARCH=noarch
 REQUIRES=python27-six
 DEPEND='python2 ruby-devel'
