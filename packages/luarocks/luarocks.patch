@@ -10,14 +10,3 @@
     esac
     shift
  done
---- origsrc/luarocks-3.5.0/src/luarocks/core/sysdetect.lua
-+++ src/luarocks-3.5.0/src/luarocks/core/sysdetect.lua
-@@ -334,7 +334,7 @@ local function detect_pe(fd)
-       end
-    end
-    
--   return system, processor or "unknown"
-+   return "cygwin", processor or "unknown"
- end
- 
- --------------------------------------------------------------------------------
