@@ -45,4 +45,4 @@ rm -f packages/*/*.{tar.bz2,tar.gz,tar.xz,zip}
 
 * Split large packages into smaller ones
 * Run automated tests
-* Set up a package server (or publish on `cygwin.com`/`sourceware.org`)
+* Publish on `cygwin.com`/`sourceware.org`

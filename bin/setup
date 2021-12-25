@@ -12,5 +12,5 @@ else
 fi
 
 awk '{print "-P "$0}' | \
-    xargs "$temp_setup" -B -q -d -s http://ftp.fau.de/cygwin/ -R cygwin
+    xargs "$temp_setup" -B -q -d -s https://ftp.fau.de/cygwin/ -s https://vonjagdstrumel.github.io/cygports/dist/ -K https://vonjagdstrumel.github.io/cygports/dist/pubring.gpg -R cygwin
 rm -f "$temp_setup"
