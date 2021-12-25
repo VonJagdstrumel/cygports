@@ -23,7 +23,7 @@ cygport packages/my-package/my-package-1.0-1.cygport finish fetch all
 
 * Logs are available in `packages/*/*.{noarch,x86_64}/log`.
 * Fresh packages are available in `packages/*/*.{noarch,x86_64}/dist`.
-* Build an sign `dist` directory:
+* Build and sign `dist` directory:
 
 ```sh
 GNUPGHOME=/path/to/.gnupg bin/mkdist
