@@ -11,7 +11,7 @@ Networking and Cryptography library. These libraries have a stated goal of
 improving usability, security and speed. It supports Python 2.7 and 3.4+ as
 well as PyPy 2.6+."
 HOMEPAGE="https://pynacl.readthedocs.io/en/stable/"
-DEPEND="python3 python39-devel python39-cffi libsodium-devel"
+DEPEND="python3 python311-devel python311-cffi libsodium-devel"
 # Instruct nacl to use system-installed libsodium
 export SODIUM_INSTALL=system
 

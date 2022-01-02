@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")/.." || exit
-export PYTHON_WHEEL_VERSIONS=3.9 CC='ccache gcc'
+export PYTHON_WHEEL_VERSIONS=3.11 CC='ccache gcc'
 
 for cp_file in packages/*/*.cygport; do
     cygport "$cp_file" ${@-fetch all}

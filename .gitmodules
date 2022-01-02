@@ -46,3 +46,6 @@
 [submodule "packages/python-numpy"]
 	path = packages/python-numpy
 	url = git@github.com:VonJagdstrumel/python-numpy.git
+[submodule "packages/python311"]
+	path = packages/python311
+	url = git@github.com:VonJagdstrumel/python311.git
