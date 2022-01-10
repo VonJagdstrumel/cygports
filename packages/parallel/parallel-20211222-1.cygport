@@ -1,0 +1,4 @@
+CATEGORY=Utils
+SRC_URI=https://ftp.gnu.org/gnu/parallel/parallel-${PV}.tar.bz2
+ARCH=noarch
+. ${top}/../base.cyg
