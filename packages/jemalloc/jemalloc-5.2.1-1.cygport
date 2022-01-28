@@ -3,5 +3,5 @@ SRC_URI=https://github.com/jemalloc/${PN}/archive/${PV}.tar.gz
 DEPEND=libxslt
 CPPFLAGS=-D_GNU_SOURCE
 MAKEOPTS=-j1
-NO_AUTOHEADER=true
+NO_AUTOHEADER=1
 . ${top}/../base.cyg
