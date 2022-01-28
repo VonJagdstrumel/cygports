@@ -1,0 +1,70 @@
+NAME=rustc
+VERSION=1.58.1
+RELEASE=1
+CATEGORY=Devel
+SUMMARY="Rust systems programming language"
+HOMEPAGE=https://www.rust-lang.org/
+DEPEND="cmake libllvm-devel python3 zlib-devel"
+
+_RUST_BUILD=x86_64-pc-windows-gnu
+_LLVM_TARGET=x86_64-unknown-windows-cygnus
+_CARGO_DIR=cargo-${VERSION%.*}.0-${_RUST_BUILD}
+_RSLIB_DIR=rust-std-${VERSION}-${_RUST_BUILD}
+_RUSTC_DIR=${NAME}-${VERSION}-${_RUST_BUILD}
+_S=$(cygpath -w "${top}/${PF}.${ARCH}/src")
+
+SRC_DIR=${NAME}-${VERSION}-src
+SRC_URI="
+    https://static.rust-lang.org/dist/${SRC_DIR}.tar.xz
+    https://static.rust-lang.org/dist/${_CARGO_DIR}.tar.xz
+    https://static.rust-lang.org/dist/${_RSLIB_DIR}.tar.xz
+    https://static.rust-lang.org/dist/${_RUSTC_DIR}.tar.xz
+"
+DIFF_EXCLUDES="
+    src/llvm-project
+    vendor
+"
+PATCH_URI="
+    0001-bootstrap.patch
+    0002-compiler.patch
+"
+CYGCONF_ARGS="
+    --build=${_LLVM_TARGET}
+    --debuginfo-level-std=1
+    --default-linker=${CBUILD}-gcc
+    --disable-dist-src
+    --disable-docs
+    --disable-manage-submodules
+    --disable-rpath
+    --dist-compression-formats=gz
+    --enable-extended
+    --enable-llvm-link-shared
+    --enable-local-rebuild
+    --enable-locked-deps
+    --enable-missing-tools
+    --enable-profiler
+    --enable-sanitizers
+    --host=${_LLVM_TARGET}
+    --llvm-config=/usr/bin/llvm-config
+    --prefix=/usr
+    --release-channel=stable
+    --set build.build-dir=\$ROOT/build
+    --set build.cargo=${_S}/${_CARGO_DIR}/cargo/bin/cargo
+    --set build.low-priority
+    --set build.rustc=${_S}/${_RUSTC_DIR}/${NAME}/bin/${NAME}
+    --set build.verbose=1
+    --set rust.backtrace-on-ice
+    --set rust.codegen-units-std=1
+    --set rust.remap-debuginfo
+    --target=${_LLVM_TARGET}
+"
+
+export RUSTFLAGS="-L ${_S}/${_RSLIB_DIR}/rust-std-${_RUST_BUILD}/lib/rustlib/${_RUST_BUILD}/lib"
+export RUST_BACKTRACE=1
+
+src_compile() {
+    CYGWIN=winsymlinks:nativestrict lndirs
+    cd ${B}
+    ./configure ${CYGCONF_ARGS} || error "configure failed"
+    cygmake
+}
