@@ -27,7 +27,7 @@
 	url = git@github.com:VonJagdstrumel/python-pip.git
 [submodule "packages/python-ply"]
 	path = packages/python-ply
-	url = git@github.com:VonJagdstrumel/python-ply.git
+	url = git@github.com:cygwinports/python-ply.git
 [submodule "packages/python-pycparser"]
 	path = packages/python-pycparser
 	url = git@github.com:VonJagdstrumel/python-pycparser.git
