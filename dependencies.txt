@@ -15,6 +15,7 @@ libgdbm-devel
 libimagequant-devel
 libjpeg-devel
 liblcms2-devel
+libllvm-devel
 liblua-devel
 liblzo2-devel
 libncurses-devel
@@ -29,13 +30,10 @@ libtirpc-devel
 libuv-devel
 libwebp
 libwebp-devel
-libxcb-devel
 libxslt-devel
 lua
 nasm
 ninja
-python-pip-wheel
-python-setuptools-wheel
 python-wheel-wheel
 python311-cffi
 python311-cython
@@ -49,4 +47,3 @@ python39-wheel
 ruby-devel
 tcl-tix
 tcl-tk-devel
-zstd

@@ -1,0 +1,57 @@
+--- origsrc/rustc-1.58.1-src/compiler/rustc_target/src/spec/mod.rs	2022-01-20 18:48:09.000000000 +0100
++++ src/rustc-1.58.1-src/compiler/rustc_target/src/spec/mod.rs	2022-01-28 08:16:06.429376500 +0100
+@@ -1012,6 +1012,7 @@ supported_targets! {
+     ("armv7-unknown-linux-uclibceabihf", armv7_unknown_linux_uclibceabihf),
+ 
+     ("x86_64-unknown-none", x86_64_unknown_none),
++    ("x86_64-unknown-windows-cygnus", x86_64_unknown_windows_cygnus),
+ }
+ 
+ /// Warnings encountered when parsing the target `json`.
+--- origsrc/rustc-1.58.1-src/compiler/rustc_target/src/spec/x86_64_unknown_windows_cygnus.rs	1970-01-01 01:00:00.000000000 +0100
++++ src/rustc-1.58.1-src/compiler/rustc_target/src/spec/x86_64_unknown_windows_cygnus.rs	2022-01-28 08:16:06.456368000 +0100
+@@ -0,0 +1,44 @@
++use crate::spec::{LinkerFlavor, Target, RelroLevel, TargetOptions};
++
++pub fn opts() -> TargetOptions {
++    TargetOptions {
++        os: "windows".to_string(),
++        vendor: "unknown".to_string(),
++        env: "cygnus".to_string(),
++        linker: Some("x86_64-pc-cygwin-gcc".to_string()),
++        cpu: "x86-64".to_string(),
++        dynamic_linking: true,
++        executables: true,
++        dll_suffix: ".dll.a".to_string(),
++        exe_suffix: ".exe".to_string(),
++        families: vec!["unix".to_string()],
++        abi_return_struct_as_int: true,
++        is_like_windows: true,
++        allows_weak_linkage: false,
++        has_rpath: true,
++        position_independent_executables: true,
++        relro_level: RelroLevel::Full,
++        has_thread_local: true,
++        max_atomic_width: Some(64),
++        crt_static_respected: true,
++        emit_debug_gdb_scripts: false,
++        requires_uwtable: true,
++        eh_frame_header: false,
++
++        ..Default::default()
++    }
++}
++
++pub fn target() -> Target {
++    let mut base = super::opts();
++    base.pre_link_args.entry(LinkerFlavor::Gcc).or_default().push("-m64".to_string());
++
++    Target {
++        llvm_target: "x86_64-unknown-windows-cygnus".to_string(),
++        pointer_width: 64,
++        data_layout: "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
++            .to_string(),
++        arch: "x86_64".to_string(),
++        options: base,
++    }
++}

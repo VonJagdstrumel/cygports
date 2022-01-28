@@ -1,0 +1,130 @@
+--- origsrc/rustc-1.58.1-src/src/bootstrap/bootstrap.py	2022-01-20 18:48:09.000000000 +0100
++++ src/rustc-1.58.1-src/src/bootstrap/bootstrap.py	2022-01-28 15:11:45.489031200 +0100
+@@ -15,6 +15,22 @@ import tempfile
+ 
+ from time import time
+ 
++def posix2win(p):
++    import ctypes
++    _cygwin1 = ctypes.CDLL("cygwin1.dll")
++
++    _cygwin1.cygwin_create_path.restype = ctypes.c_void_p
++    _cygwin1.cygwin_create_path.argtypes = [ctypes.c_uint,
++                                   ctypes.c_void_p]
++
++    _cygwin1.free.restype = None
++    _cygwin1.free.argtypes = [ctypes.c_void_p]
++
++    b = _cygwin1.cygwin_create_path(1, p.encode())
++    r = ctypes.cast(b, ctypes.c_wchar_p).value
++    _cygwin1.free(b)
++    return r
++
+ def support_xz():
+     try:
+         with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+@@ -271,7 +271,7 @@ def default_build_triple(verbose):
+         cputype = 'i686'
+         if ostype.endswith('WOW64'):
+             cputype = 'x86_64'
+-        ostype = 'pc-windows-gnu'
++        ostype = 'unknown-windows-cygnus'
+     elif sys.platform == 'win32':
+         # Some Windows platforms might have a `uname` command that returns a
+         # non-standard string (e.g. gnuwin32 tools returns `windows32`). In
+@@ -943,7 +961,7 @@ class RustBuild(object):
+         # See also: <https://github.com/rust-lang/rust/issues/70208>.
+         if "CARGO_BUILD_TARGET" in env:
+             del env["CARGO_BUILD_TARGET"]
+-        env["CARGO_TARGET_DIR"] = build_dir
++        env["CARGO_TARGET_DIR"] = posix2win(build_dir)
+         env["RUSTC"] = self.rustc(True)
+         env["LD_LIBRARY_PATH"] = os.path.join(self.bin_root(True), "lib") + \
+             (os.pathsep + env["LD_LIBRARY_PATH"]) \
+@@ -973,13 +991,13 @@ class RustBuild(object):
+         if self.get_toml("deny-warnings", "rust") != "false":
+             env["RUSTFLAGS"] += " -Dwarnings"
+ 
+-        env["PATH"] = os.path.join(self.bin_root(True), "bin") + \
++        env["PATH"] = posix2win(os.path.join(self.bin_root(True), "bin")) + \
+             os.pathsep + env["PATH"]
+         if not os.path.isfile(self.cargo()):
+             raise Exception("no cargo executable found at `{}`".format(
+                 self.cargo()))
+         args = [self.cargo(), "build", "--manifest-path",
+-                os.path.join(self.rust_root, "src/bootstrap/Cargo.toml")]
++                posix2win(os.path.join(self.rust_root, "src/bootstrap/Cargo.toml"))]
+         for _ in range(0, self.verbose):
+             args.append("--verbose")
+         if self.use_locked_deps:
+@@ -1151,7 +1170,7 @@ class RustBuild(object):
+                 "vendor",
+                 "--sync=./src/tools/rust-analyzer/Cargo.toml",
+                 "--sync=./compiler/rustc_codegen_cranelift/Cargo.toml",
+-            ], verbose=self.verbose, cwd=self.rust_root)
++            ], verbose=self.verbose, cwd=posix2win(self.rust_root))
+ 
+ 
+ def bootstrap(help_triggered):
+@@ -1242,10 +1261,10 @@ def bootstrap(help_triggered):
+     env = os.environ.copy()
+     env["BOOTSTRAP_PARENT_ID"] = str(os.getpid())
+     env["BOOTSTRAP_PYTHON"] = sys.executable
+-    env["BUILD_DIR"] = build.build_dir
++    env["BUILD_DIR"] = posix2win(build.build_dir)
+     env["RUSTC_BOOTSTRAP"] = '1'
+     if toml_path:
+-        env["BOOTSTRAP_CONFIG"] = toml_path
++        env["BOOTSTRAP_CONFIG"] = posix2win(toml_path)
+     if build.rustc_commit is not None:
+         env["BOOTSTRAP_DOWNLOAD_RUSTC"] = '1'
+     run(args, env=env, verbose=build.verbose, is_bootstrap=True)
+--- origsrc/rustc-1.58.1-src/x86_64-unknown-windows-cygnus.json	1970-01-01 01:00:00.000000000 +0100
++++ src/rustc-1.58.1-src/x86_64-unknown-windows-cygnus.json	2022-01-28 08:16:06.396369100 +0100
+@@ -0,0 +1,46 @@
++{
++  "abi-return-struct-as-int": true,
++  "allows-weak-linkage": false,
++  "arch": "x86_64",
++  "cpu": "x86-64",
++  "crt-static-respected": true,
++  "data-layout": "e-m:w-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128",
++  "dll-suffix": ".dll.a",
++  "dynamic-linking": true,
++  "eh-frame-header": false,
++  "emit-debug-gdb-scripts": false,
++  "exe-suffix": ".exe",
++  "executables": true,
++  "function-sections": false,
++  "has-elf-tls": true,
++  "has-rpath": true,
++  "is-like-windows": true,
++  "linker": "x86_64-pc-cygwin-gcc",
++  "llvm-target": "x86_64-unknown-windows-cygnus",
++  "max-atomic-width": 64,
++  "os": "windows",
++  "position-independent-executables": true,
++  "pre-link-args": {
++    "gcc": [
++      "-m64"
++    ]
++  },
++  "relro-level": "full",
++  "requires-uwtable": true,
++  "stack-probes": {
++    "kind": "call"
++  },
++  "supported-sanitizers": [
++    "address",
++    "cfi",
++    "leak",
++    "memory",
++    "thread"
++  ],
++  "target-family": [
++    "unix"
++  ],
++  "target-pointer-width": "64",
++  "vendor": "unknown",
++  "env": "cygnus"
++}
