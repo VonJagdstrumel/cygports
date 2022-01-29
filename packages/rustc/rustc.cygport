@@ -38,7 +38,6 @@ CYGCONF_ARGS="
     --disable-rpath
     --dist-compression-formats=gz
     --enable-extended
-    --enable-llvm-link-shared
     --enable-local-rebuild
     --enable-locked-deps
     --enable-missing-tools
@@ -61,10 +60,14 @@ CYGCONF_ARGS="
 
 export RUSTFLAGS="-L ${_S}/${_RSLIB_DIR}/rust-std-${_RUST_BUILD}/lib/rustlib/${_RUST_BUILD}/lib"
 export RUST_BACKTRACE=1
+export BUILD_TRIPLE=unknown-windows-cygnus
 
 src_compile() {
     CYGWIN=winsymlinks:nativestrict lndirs
     cd ${B}
+    cp ../src/${_RSLIB_DIR}/rust-std-${_RUST_BUILD}/lib/rustlib/${_RUST_BUILD}/lib/self-contained/*.o .
+    export BOOTSTRAP_CONFIG=$(cygpath -wa config.toml)
+    export BUILD_DIR=$(cygpath -wa build)
     ./configure ${CYGCONF_ARGS} || error "configure failed"
     cygmake
 }
