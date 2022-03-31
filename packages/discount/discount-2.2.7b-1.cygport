@@ -1,0 +1,10 @@
+CATEGORY=Utils
+SRC_URI=https://github.com/Orc/${PN}/archive/v${PV}.tar.gz
+. ${top}/../base.cyg
+
+src_compile() {
+    lndirs
+    cd ${B}
+    ./configure.sh --prefix=$(__host_prefix)
+    cygmake
+}
