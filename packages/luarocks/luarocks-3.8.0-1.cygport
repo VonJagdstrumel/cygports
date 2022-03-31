@@ -1,5 +1,6 @@
 CATEGORY=Lua
 SRC_URI=https://github.com/luarocks/${PN}/archive/v${PV}.tar.gz
+PATCH_URI=${PN}.patch
 DEPEND=lua-devel
 . ${top}/../base.cyg
 

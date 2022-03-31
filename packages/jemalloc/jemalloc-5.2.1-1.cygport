@@ -1,5 +1,6 @@
 CATEGORY=Devel
 SRC_URI=https://github.com/jemalloc/${PN}/archive/${PV}.tar.gz
+PATCH_URI=${PN}.patch
 DEPEND=libxslt
 CPPFLAGS=-D_GNU_SOURCE
 MAKEOPTS=-j1

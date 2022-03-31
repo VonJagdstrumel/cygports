@@ -1,3 +1,2 @@
-[[ -z ${PATCH_URI} && -f ${top}/${PN}.patch ]] && PATCH_URI=${top}/${PN}.patch
 [[ -z ${SUMMARY} ]] && SUMMARY=${PN}
 RESTRICT='debuginfo postinst-doc'

@@ -1,4 +1,5 @@
 CATEGORY=Devel
 SRC_URI=https://github.com/microsoft/${PN}/archive/v${PV}.tar.gz
+PATCH_URI=${PN}.patch
 inherit cmake
 . ${top}/../base.cyg
