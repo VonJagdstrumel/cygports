@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
 
-readonly temp_setup=$(mktemp)
+readonly setup=$(mktemp)
 
-if type -P curl; then
-    curl -o "$temp_setup" https://cygwin.com/setup-x86_64.exe
-elif type -P wget; then
-    wget -O "$temp_setup" https://cygwin.com/setup-x86_64.exe
-else
-    exit 1
+if type -P curl
+then curl -o "$setup" https://cygwin.com/setup-x86_64.exe
+elif type -P wget
+then wget -O "$setup" https://cygwin.com/setup-x86_64.exe
+else exit 1
 fi
 
-awk '{print "-P "$0}' | \
-    xargs "$temp_setup" -B -q -d -s https://ftp.fau.de/cygwin/ -s https://vonjagdstrumel.github.io/cygports/dist/ -K https://vonjagdstrumel.github.io/cygports/dist/pubring.gpg -R cygwin
-rm -f "$temp_setup"
+"$setup" \
+    --local-package-dir "$LOCALAPPDATA/Cygwin" \
+    --no-admin \
+    --no-shortcuts \
+    $(awk '$0 { printf("%s%s", NR==1 ? "--packages " : ",", $0) }') \
+    --pubkey https://vonjagdstrumel.github.io/cygports/dist/pubring.gpg \
+    --quiet-mode \
+    --root cygwin \
+    --site https://ftp.fau.de/cygwin/ \
+    --site https://ftp.lip6.fr/pub/cygwin/ \
+    --site https://vonjagdstrumel.github.io/cygports/dist/
+
+rm -f "$setup"
