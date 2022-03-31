@@ -1,0 +1,14 @@
+CATEGORY=Utils
+SRC_URI=https://github.com/leahneukirchen/${PN}/archive/v${PV}.tar.gz
+. ${top}/../base.cyg
+
+src_compile() {
+    lndirs
+    cd ${B}
+    cygmake
+}
+
+src_install() {
+    cd ${B}
+    cyginstall PREFIX=$(__host_prefix)
+}
