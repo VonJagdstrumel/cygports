@@ -1,6 +1,3 @@
-[submodule "packages/python39"]
-	path = packages/python39
-	url = git@github.com:VonJagdstrumel/python39.git
 [submodule "packages/python-asn1crypto"]
 	path = packages/python-asn1crypto
 	url = git@github.com:cygwinports/python-asn1crypto.git
