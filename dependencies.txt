@@ -37,13 +37,15 @@ ninja
 python-pip-wheel
 python-setuptools-wheel
 python-wheel-wheel
-python311
 python311-cffi
 python311-cython
 python311-devel
 python311-pip
 python311-ply
 python311-wheel
+python39-cffi
+python39-devel
+python39-wheel
 ruby-devel
 tcl-tix
 tcl-tk-devel
