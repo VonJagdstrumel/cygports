@@ -14,11 +14,11 @@ fi
     --no-admin \
     --no-shortcuts \
     $(awk '$0 { printf("%s%s", NR==1 ? "--packages " : ",", $0) }') \
-    --pubkey https://vonjagdstrumel.github.io/cygports/dist/pubring.gpg \
+    --pubkey https://cygwin.vonjagdstrumel.net/dist/pubring.gpg \
     --quiet-mode \
     --root cygwin \
     --site https://ftp.fau.de/cygwin/ \
     --site https://ftp.lip6.fr/pub/cygwin/ \
-    --site https://vonjagdstrumel.github.io/cygports/dist/
+    --site https://cygwin.vonjagdstrumel.net/dist/
 
 rm -f "$setup"
