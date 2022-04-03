@@ -1,0 +1,46 @@
+CATEGORY=Shells
+SRC_URI=https://github.com/nojhan/${PN}/archive/v${PV}.tar.gz
+ARCH=noarch
+. ${top}/../base.cyg
+
+# Recursive doins()
+__doins_dir() {
+    local s=${PWD}
+    local d=${_insinto_dir}
+
+    while IFS=$'\t' read -r h f
+    do
+        if [[ ${_insinto_dir} != "$h" ]]
+        then 
+            cd "$s/$h"
+            insinto "$d/$h"
+        fi
+        doins "$f"
+    done < <(find "${1}" ! -type d -printf '%h\t%f\n')
+
+    cd "$s"
+    insinto "$d"
+}
+
+src_compile() {
+    lndirs
+    # XXX Makefile on master but not yet released
+    return
+    cd ${B}
+    cygmake
+}
+
+src_install() {
+    cd ${B}
+    dobin liquidprompt
+    insinto /etc
+    newins liquidpromptrc-dist liquidpromptrc
+
+    insinto /usr/share
+    __doins_dir themes
+    __doins_dir tools
+    doins example.bashrc
+    doins liquid.ps1
+    doins liquid.theme
+    doins liquidprompt.plugin.zsh
+}
