@@ -1,64 +1,51 @@
 [submodule "packages/python-asn1crypto"]
 	path = packages/python-asn1crypto
 	url = git@github.com:cygwinports/python-asn1crypto.git
-	update = rebase
 [submodule "packages/python-cffi"]
 	path = packages/python-cffi
 	url = git@github.com:VonJagdstrumel/python-cffi.git
-	update = rebase
 [submodule "packages/python-cryptography"]
 	path = packages/python-cryptography
 	url = git@github.com:VonJagdstrumel/python-cryptography.git
-	update = rebase
 [submodule "packages/python-idna"]
 	path = packages/python-idna
 	url = git@github.com:cygwinports/python-idna.git
-	update = rebase
 [submodule "packages/python-imaging"]
 	path = packages/python-imaging
 	url = git@github.com:VonJagdstrumel/python-imaging.git
-	update = rebase
 [submodule "packages/python-lxml"]
 	path = packages/python-lxml
 	url = git@github.com:VonJagdstrumel/python-lxml.git
-	update = rebase
 [submodule "packages/python-olefile"]
 	path = packages/python-olefile
 	url = git@github.com:cygwinports/python-olefile.git
-	update = rebase
 [submodule "packages/python-pip"]
 	path = packages/python-pip
 	url = git@github.com:VonJagdstrumel/python-pip.git
-	update = rebase
 [submodule "packages/python-ply"]
 	path = packages/python-ply
 	url = git@github.com:cygwinports/python-ply.git
-	update = rebase
 [submodule "packages/python-pycparser"]
 	path = packages/python-pycparser
 	url = git@github.com:VonJagdstrumel/python-pycparser.git
-	update = rebase
 [submodule "packages/python-setuptools"]
 	path = packages/python-setuptools
 	url = git@github.com:VonJagdstrumel/python-setuptools.git
-	update = rebase
 [submodule "packages/python-six"]
 	path = packages/python-six
 	url = git@github.com:cygwinports/python-six.git
-	update = rebase
 [submodule "packages/python-wheel"]
 	path = packages/python-wheel
 	url = git@github.com:VonJagdstrumel/python-wheel.git
-	update = rebase
 [submodule "packages/python-cython"]
 	path = packages/python-cython
 	url = git@github.com:VonJagdstrumel/python-cython.git
-	update = rebase
 [submodule "packages/python-numpy"]
 	path = packages/python-numpy
 	url = git@github.com:VonJagdstrumel/python-numpy.git
-	update = rebase
 [submodule "packages/python311"]
 	path = packages/python311
 	url = git@github.com:VonJagdstrumel/python311.git
-	update = rebase
+[submodule "dist"]
+	path = dist
+	url = git@github.com:VonJagdstrumel/cygports-dist.git

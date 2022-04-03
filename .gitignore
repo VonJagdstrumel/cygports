@@ -1,5 +1,4 @@
 cygwin/
-dist/
 packages/*/*.noarch/
 packages/*/*.tar.bz2
 packages/*/*.tar.gz
