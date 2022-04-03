@@ -10,6 +10,7 @@ else exit 1
 fi
 
 "$setup" \
+    --delete-orphans \
     --local-package-dir "$LOCALAPPDATA/Cygwin" \
     --no-admin \
     --no-shortcuts \
@@ -19,6 +20,7 @@ fi
     --root cygwin \
     --site https://ftp.fau.de/cygwin/ \
     --site https://ftp.lip6.fr/pub/cygwin/ \
-    --site https://cygwin.vonjagdstrumel.net/dist/
+    --site https://cygwin.vonjagdstrumel.net/dist/ \
+    --upgrade-also
 
 rm -f "$setup"
