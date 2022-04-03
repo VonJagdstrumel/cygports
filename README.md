@@ -2,6 +2,12 @@
 
 ## How to use
 
+* Init/update submodules:
+
+```sh
+git submodule update --init --remote packages
+```
+
 * Install `cygport` and dependencies:
 
 ```sh
@@ -31,7 +37,17 @@ cygport packages/my-package/my-package-1.0-1.cygport finish fetch all
 * Build and sign `dist` directory:
 
 ```sh
-GNUPGHOME=/path/to/.gnupg bin/mkdist
+GNUPGHOME=/path/to/.gnupg bin/mkdist KEYID
+```
+
+* Publish packages:
+
+```sh
+pushd dist
+git checkout master && git add .
+git commit --amend -m "$(date -Iseconds)"
+git push --force-with-lease
+popd
 ```
 
 * To clean everything up:
