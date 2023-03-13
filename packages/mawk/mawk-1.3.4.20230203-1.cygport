@@ -1,6 +1,7 @@
 CATEGORY=Interpreters
 SRC_URI=https://github.com/ThomasDickey/${PN}-snapshots/archive/t${PV##*.}.tar.gz
 SRC_DIR=${PN}-snapshots-t${PV##*.}
+AUTOCONF_VERSION=2.52
 . ${top}/../base.cyg
 
 src_compile() {
