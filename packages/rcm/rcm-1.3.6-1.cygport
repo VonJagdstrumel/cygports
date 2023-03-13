@@ -5,8 +5,8 @@ SRC_URI=https://github.com/thoughtbot/${PN}/archive/v${PV}.tar.gz
 src_compile() {
     cd ${S}
     cygautoreconf
-    gem install mustache -i gems -n gems/bin --no-user-install
-    GEM_PATH=gems PATH+=:gems/bin maint/autocontrib man/rcm.7.mustache
+    pip3 install -t vendor pystache
+    PYTHONPATH=vendor maint/autocontrib man/rcm.7.mustache
     cd ${B}
     cygconf
     cygmake
