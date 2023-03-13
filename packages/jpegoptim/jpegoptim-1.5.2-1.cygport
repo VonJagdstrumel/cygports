@@ -1,6 +1,5 @@
 CATEGORY='Graphics Utils'
-SRC_URI=https://github.com/tjko/${PN}/archive/RELEASE.${PV}.tar.gz
-SRC_DIR=${PN}-RELEASE.${PV}
+SRC_URI=https://github.com/tjko/${PN}/archive/v${PV}.tar.gz
 DEPEND=libjpeg-devel
 . ${top}/../base.cyg
 
