@@ -1,4 +1,5 @@
 CATEGORY=Devel
 SRC_URI=https://github.com/ArthurSonzogni/${PN^^}/archive/v${PV}.tar.gz
+CPPFLAGS=-D_GNU_SOURCE
 inherit cmake
 . ${top}/../base.cyg
