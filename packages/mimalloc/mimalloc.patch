@@ -8,3 +8,14 @@
  #ifndef MPOL_PREFERRED
  #define MPOL_PREFERRED 1
  #endif
+--- a/CMakeLists.txt	2022-12-23 22:31:56.000000000 +0100
++++ b/CMakeLists.txt	2023-03-12 23:21:13.971024300 +0100
+@@ -296,7 +296,7 @@ endif()
+ # -----------------------------------------------------------------------------
+ 
+ # dynamic/shared library and symlinks always go to /usr/local/lib equivalent
+-set(mi_install_libdir   "${CMAKE_INSTALL_LIBDIR}")
++set(mi_install_libdir   "${CMAKE_INSTALL_BINDIR}")
+ 
+ # static libraries and object files, includes, and cmake config files
+ # are either installed at top level, or use versioned directories for side-by-side installation (default)
