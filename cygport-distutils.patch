@@ -1,0 +1,55 @@
+ cygclass/python3.cygclass | 8 ++++----
+ lib/pkg_info.cygpart      | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git c/cygclass/python3.cygclass w/cygclass/python3.cygclass
+index 168a39f..e6bf064 100644
+--- c/cygclass/python3.cygclass
++++ w/cygclass/python3.cygclass
+@@ -68,7 +68,7 @@ PYTHON3_CONFIG=$(readlink -f /usr/bin/python3-config)
+ #  DESCRIPTION
+ #  The major.minor version of the current Python3 interpreter.
+ #****
+-PYTHON3_VERSION=$(${PYTHON3} -c 'from distutils.sysconfig import * ; print(get_python_version());')
++PYTHON3_VERSION=$(${PYTHON3} -c 'from sysconfig import * ; print(get_python_version());')
+ 
+ #****d* python3.cygclass/PYTHON3_PKGVERSION
+ #  DESCRIPTION
+@@ -87,7 +87,7 @@ PYTHON3_ABIFLAGS=$(${PYTHON3_CONFIG} --abiflags 2>/dev/null)
+ #  DESCRIPTION
+ #  Path containing the Python3 C library headers.
+ #****
+-PYTHON3_INCLUDEDIR=$(${PYTHON3} -c 'from distutils.sysconfig import * ; print(get_python_inc());')
++PYTHON3_INCLUDEDIR=$(${PYTHON3} -c 'from sysconfig import * ; print(get_python_inc());')
+ 
+ #****d* python3.cygclass/PYTHON3_LIB
+ #  DESCRIPTION
+@@ -95,13 +95,13 @@ PYTHON3_INCLUDEDIR=$(${PYTHON3} -c 'from distutils.sysconfig import * ; print(ge
+ #  NOTE
+ #  Never install third-party extensions into PYTHON3_LIB; use PYTHON3_SITELIB instead.
+ #****
+-PYTHON3_LIB=$(${PYTHON3} -c 'from distutils.sysconfig import * ; print(get_python_lib(0,1));')
++PYTHON3_LIB=$(${PYTHON3} -c 'from sysconfig import * ; print(get_python_lib(0,1));')
+ 
+ #****d* python3.cygclass/PYTHON3_SITELIB
+ #  DESCRIPTION
+ #  Installation path for all Python3 extension modules.
+ #****
+-PYTHON3_SITELIB=$(${PYTHON3} -c 'from distutils.sysconfig import * ; print(get_python_lib(0,0));')
++PYTHON3_SITELIB=$(${PYTHON3} -c 'from sysconfig import * ; print(get_python_lib(0,0));')
+ 
+ #****d* python3.cygclass/LIBPYTHON3
+ #  DESCRIPTION
+diff --git c/lib/pkg_info.cygpart w/lib/pkg_info.cygpart
+index 7202e5b..19fece9 100644
+--- c/lib/pkg_info.cygpart
++++ w/lib/pkg_info.cygpart
+@@ -527,7 +527,7 @@ for suffix, mode, type in imp.get_suffixes(): print(suffix)')
+ 			-o -path 'usr/share/help/*' -prune \
+ 			-o -type f -executable -exec sed -sne '1{/^#!.*python/F}' '{}' +)
+ 	do
+-		pyver=$($(sed -sne '1{/^#!/s|/env *|/|g;s|^#! *\([^ ]*\).*|\1|gp}' $pyscr) -c 'from distutils.sysconfig import get_python_version; print(get_python_version())')
++		pyver=$($(sed -sne '1{/^#!/s|/env *|/|g;s|^#! *\([^ ]*\).*|\1|gp}' $pyscr) -c 'from sysconfig import get_python_version; print(get_python_version())')
+ 		case ${pyver} in
+ 		3.*)	pyexts=$(python${pyver} -s -c 'import importlib.machinery; print(*importlib.machinery.all_suffixes())')
+ 			tkimp=
