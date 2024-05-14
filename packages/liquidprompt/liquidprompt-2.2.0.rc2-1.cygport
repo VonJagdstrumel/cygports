@@ -1,5 +1,6 @@
 CATEGORY=Shells
-SRC_URI=https://github.com/nojhan/${PN}/archive/v${PV}.tar.gz
+SRC_URI=https://github.com/nojhan/${PN}/archive/v${PV/.rc/-rc.}.tar.gz
+SRC_DIR=${PN}-${PV/.rc/-rc.}
 ARCH=noarch
 . ${top}/../base.cyg
 
@@ -24,10 +25,8 @@ __doins_dir() {
 
 src_compile() {
     lndirs
-    # XXX Makefile on master but not yet released
-    return
     cd ${B}
-    cygmake
+    tools/config-from-doc.sh > liquidpromptrc-dist
 }
 
 src_install() {
@@ -35,12 +34,6 @@ src_install() {
     dobin liquidprompt
     insinto /etc
     newins liquidpromptrc-dist liquidpromptrc
-
-    insinto /usr/share
+    insinto /usr/share/liquidprompt
     __doins_dir themes
-    __doins_dir tools
-    doins example.bashrc
-    doins liquid.ps1
-    doins liquid.theme
-    doins liquidprompt.plugin.zsh
 }
