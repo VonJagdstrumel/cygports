@@ -1,13 +1,3 @@
---- a/src/os.c
-+++ b/src/os.c
-@@ -867,7 +867,6 @@ static void* mi_os_alloc_huge_os_pagesx(void* addr, size_t size, int numa_node)
- }
- 
- #elif defined(MI_OS_USE_MMAP) && (MI_INTPTR_SIZE >= 8) && !defined(__HAIKU__)
--#include <sys/syscall.h>
- #ifndef MPOL_PREFERRED
- #define MPOL_PREFERRED 1
- #endif
 --- a/CMakeLists.txt	2022-12-23 22:31:56.000000000 +0100
 +++ b/CMakeLists.txt	2023-03-12 23:21:13.971024300 +0100
 @@ -296,7 +296,7 @@ endif()
@@ -18,4 +8,4 @@
 +set(mi_install_libdir   "${CMAKE_INSTALL_BINDIR}")
  
  # static libraries and object files, includes, and cmake config files
- # are either installed at top level, or use versioned directories for side-by-side installation (default)
+ # are either installed at top level, or use versioned directories for side-by-side installation (default)
