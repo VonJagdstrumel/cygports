@@ -1,0 +1,23 @@
+--- origsrc/hstr-3.1/src/hstr_utils.c	2023-04-18 23:26:18.000000000 +0200
++++ src/hstr-3.1/src/hstr_utils.c	2024-05-13 22:51:21.670191100 +0200
+@@ -160,6 +160,7 @@ void tiocsti(void)
+ void fill_terminal_input(char* cmd, bool padding)
+ {
+     if(cmd && strlen(cmd)>0) {
++#if !defined(__MS_WSL__) && !defined(__CYGWIN__)
+             if(is_tiocsti) {
+             size_t size = strlen(cmd);
+             unsigned i;
+@@ -172,9 +173,12 @@ void fill_terminal_input(char* cmd, bool
+             // echo, but don't flush to terminal
+             if(padding) printf("\n");
+         } else {
++#endif
+             fprintf(stderr, "%s", cmd);
+             if(padding) fprintf(stderr, "%s", "\n");
++#if !defined(__MS_WSL__) && !defined(__CYGWIN__)
+         }
++#endif
+     }
+ }
+ 
