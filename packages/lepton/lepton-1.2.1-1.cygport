@@ -1,7 +1,0 @@
-CATEGORY=Devel
-SRC_URI=https://github.com/dropbox/${PN}/archive/${PV}.tar.gz
-CPPFLAGS=-D_GNU_SOURCE
-CYGCONF_ARGS=--enable-system-dependencies
-PKG_CONTENTS=usr/bin/lepton.exe
-PKG_IGNORE=usr/bin/test_invariants.exe
-. ${top}/../base.cyg
