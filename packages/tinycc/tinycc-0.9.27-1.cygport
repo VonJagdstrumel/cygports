@@ -1,6 +1,7 @@
 CATEGORY=Devel
 SRC_URI=https://download.savannah.gnu.org/releases/${PN}/tcc-${PV}.tar.bz2
 SRC_DIR=tcc-${PV}
+AUTOCONF_VERSION=2.13
 . ${top}/../base.cyg
 
 src_compile() {
