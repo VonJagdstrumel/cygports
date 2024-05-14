@@ -46,6 +46,9 @@
 [submodule "packages/python311"]
 	path = packages/python311
 	url = git@github.com:VonJagdstrumel/python311.git
+[submodule "packages/python313"]
+	path = packages/python313
+	url = git@github.com:VonJagdstrumel/python313.git
 [submodule "dist"]
 	path = dist
 	url = git@github.com:VonJagdstrumel/cygports-dist.git
