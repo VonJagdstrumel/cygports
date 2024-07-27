@@ -14,9 +14,10 @@ for arch in noarch x86_64 ; do
     pushd dist/$arch > /dev/null
     mksetupini \
         --arch $arch \
+        --disable-check missing-required-package \
         --inifile setup.ini \
-        --releasearea .. \
-        --disable-check missing-required-package,missing-depended-package
+        --release cygwin-vonjagdstrumel \
+        --releasearea ..
     bzip2 < setup.ini > setup.bz2
     xz < setup.ini > setup.xz
     zstd < setup.ini > setup.zst
@@ -39,3 +40,28 @@ if [[ $1 ]]; then
         -o dist/pubring.gpg \
         --export "$1!"
 fi
+
+awk 'BEGIN {
+    print("|Package|Summary|Categories|Versions|")
+    print("|---|---|---|---|")
+}
+match($0, /^@ (.+)/, a) {
+    if ("name" in p && !match(p["category"], /(^| )_obsolete( |$)/)) {
+        for (k in p) {
+            if (k != "sdesc") {
+                gsub(/ /, "`, `", p[k])
+                gsub(/(^|$)/, "`", p[k])
+            }
+        }
+        printf("|%s|%s|%s|%s|\n", p["name"], p["sdesc"], p["category"], p["version"])
+    }
+    delete p
+    p["name"] = a[1]
+}
+match($0, /^(sdesc|category|version): (.+)/, a) {
+    if (a[1] == "sdesc") {
+        gsub(/(^"|"$)/, "", a[2])
+        if (a[2] == p["name"]) next
+    }
+    p[a[1]] = p[a[1]] ? p[a[1]] " " a[2] : a[2]
+}' dist/x86_64/setup.ini > dist/_report.md
