@@ -1,0 +1,5 @@
+CATEGORY='Devel Utils'
+SRC_URI=https://github.com/uncrustify/${PN}/archive/${PN}-${PV}.tar.gz
+SRC_DIR=${PN}-${PN}-${PV}
+inherit cmake
+. ${top}/../base.cyg
