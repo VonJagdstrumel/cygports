@@ -1,6 +1,6 @@
 CATEGORY='Net Web'
-SRC_URI=https://github.com/versat/${PN}/archive/292f8ff7f6470ea21929620d1b8de67e51d10797.tar.gz
-SRC_DIR=${PN}-292f8ff7f6470ea21929620d1b8de67e51d10797
+SRC_URI=https://github.com/versat/${PN}/archive/016ce1e47d6254af497f694d99196a95370830c9.tar.gz
+SRC_DIR=${PN}-016ce1e47d6254af497f694d99196a95370830c9
 PATCH_URI=${PN}.patch
 AUTOCONF_VERSION=2.13
 . ${top}/../base.cyg
@@ -8,7 +8,7 @@ AUTOCONF_VERSION=2.13
 src_compile() {
     lndirs
     cd ${B}
-    CC=gcc cygconf
+    cygconf
     cygmake
 }
 
