@@ -3,6 +3,10 @@
 cd "$(dirname "$0")/.." || exit
 export PYTHON_WHEEL_VERSIONS=3.11:3.13 CC='ccache gcc'
 
+/usr/sbin/alternatives --list \
+| awk '$2 == "manual" {print $1}' \
+| xargs -rn1 /usr/sbin/alternatives --auto
+
 for cp_file in packages/*/*.cygport; do
     cygport "$cp_file" ${@-fetch all}
 done
