@@ -26,6 +26,7 @@ libsqlite3-devel
 libssl-devel
 libtiff-devel
 libtirpc-devel
+libuuid-devel
 libuv-devel
 libwebp
 libwebp-devel
