@@ -2,6 +2,8 @@
 
 cd "$(dirname "$0")/.." || exit
 
+readonly ver=$(grep -Po '(?<=\bversion\s)\d\.\d+\b' /var/log/setup.log.full 2>/dev/null)
+
 for arch in noarch x86_64 ; do
     mkdir -p dist/$arch/release
     find packages \
@@ -14,10 +16,11 @@ for arch in noarch x86_64 ; do
     pushd dist/$arch > /dev/null
     mksetupini \
         --arch $arch \
-        --disable-check missing-required-package \
+        --disable-check missing-required-package,curr-most-recent \
         --inifile setup.ini \
         --release cygwin-vonjagdstrumel \
-        --releasearea ..
+        --releasearea .. \
+        ${ver:+--setup-version $ver}
     bzip2 < setup.ini > setup.bz2
     xz < setup.ini > setup.xz
     zstd < setup.ini > setup.zst
